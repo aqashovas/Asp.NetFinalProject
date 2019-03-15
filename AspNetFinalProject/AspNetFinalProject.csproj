@@ -130,14 +130,22 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\About.cs" />
+    <Compile Include="Models\Appointment.cs" />
     <Compile Include="Models\Author.cs" />
     <Compile Include="Models\Blog.cs" />
     <Compile Include="Models\BlogCategory.cs" />
     <Compile Include="Models\Blogtag.cs" />
     <Compile Include="Models\Comment.cs" />
+    <Compile Include="Models\Counter.cs" />
+    <Compile Include="Models\Department.cs" />
+    <Compile Include="Models\DepartmentCategory.cs" />
+    <Compile Include="Models\DepartmentInfo.cs" />
+    <Compile Include="Models\Doctor.cs" />
     <Compile Include="Models\PatientFeedback.cs" />
     <Compile Include="Models\Promedi.cs" />
+    <Compile Include="Models\PromediHospitalContext.cs" />
     <Compile Include="Models\Setting.cs" />
     <Compile Include="Models\Slider.cs" />
     <Compile Include="Models\Tag.cs" />

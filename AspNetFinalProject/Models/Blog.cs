@@ -26,6 +26,8 @@ namespace AspNetFinalProject.Models
 
         public int CategoryId { get; set; }
 
+        public string Slug { get; set; }
+
         public BlogCategory BlogCategory { get; set; }
 
         public List<Comment> Comments { get; set; }
