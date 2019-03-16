@@ -7,6 +7,8 @@ namespace AspNetFinalProject.Models
 {
     public class Blogtag
     {
+        public int Id { get; set; }
+
         public int TagId { get; set; }
 
         public int BlogId { get; set; }

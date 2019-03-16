@@ -13,6 +13,8 @@ namespace AspNetFinalProject.Models
 
         public string Logo { get; set; }
 
+        public string Photo { get; set; }
+
         public string Text { get; set; }
 
 

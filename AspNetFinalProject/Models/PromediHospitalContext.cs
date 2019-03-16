@@ -12,37 +12,41 @@ namespace AspNetFinalProject.Models
         {
 
         }
-        public DbSet<About> Abouts;
+        public DbSet<About> Abouts { get; set; }
 
-        public DbSet<Author> Authors;
+        public DbSet<Author> Authors { get; set; }
 
-        public DbSet<Appointment> Appointments;
+        public DbSet<Appointment> Appointments { get; set; }
 
-        public DbSet<Blog> Blogs;
+        public DbSet<Blog> Blogs { get; set; }
 
-        public DbSet<BlogCategory> BlogCategories;
+        public DbSet<BlogCategory> BlogCategories { get; set; }
 
-        public DbSet<Blogtag> Blogtags;
+        public DbSet<Blogtag> Blogtags { get; set; }
 
-        public DbSet<Comment> Comments;
+        public DbSet<Comment> Comments { get; set; }
 
-        public DbSet<Counter> Counters;
+        public DbSet<Counter> Counters { get; set; }
 
-        public DbSet<Department> Departments;
+        public DbSet<Department> Departments { get; set; }
 
-        public DbSet<DepartmentCategory> DepartmentCategories;
+        public DbSet<DepartmentCategory> DepartmentCategories { get; set; }
 
-        public DbSet<DepartmentInfo> DepartmentInfos;
+        public DbSet<Doctor> Doctors { get; set; }
 
-        public DbSet<Doctor> Doctors;
+        public DbSet<PatientFeedback> PatientFeedbacks { get; set; }
 
-        public DbSet<PatientFeedback> PatientFeedbacks;
+        public DbSet<Promedi> Promedis { get; set; }
 
-        public DbSet<Promedi> Promedis;
+        public DbSet<Setting> Settings { get; set; }
 
-        public DbSet<Setting> Settings;
+        public DbSet<Tag> Tags { get; set; }
 
-        public DbSet<Tag> Tags;
+        public DbSet<Speciality> Specialities { get; set; }
+
+        public DbSet<ExpertIn> ExpertIns { get; set; }
+
+        public DbSet<ActiveTime> ActiveTimes { get; set; }
 
 
 

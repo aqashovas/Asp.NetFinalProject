@@ -174,3 +174,12 @@ C:\Users\Sabina123\Source\Repos\aqashovas\Asp.NetFinalProject\AspNetFinalProject
 C:\Users\Sabina123\Source\Repos\aqashovas\Asp.NetFinalProject\AspNetFinalProject\obj\Debug\AspNetFinalProject.csproj.CopyComplete
 C:\Users\Sabina123\Source\Repos\aqashovas\Asp.NetFinalProject\AspNetFinalProject\obj\Debug\AspNetFinalProject.dll
 C:\Users\Sabina123\Source\Repos\aqashovas\Asp.NetFinalProject\AspNetFinalProject\obj\Debug\AspNetFinalProject.pdb
+C:\Users\Sabina123\Source\Repos\aqashovas\Asp.NetFinalProject\AspNetFinalProject\obj\Debug\AspNetFinalProject.Migrations.Init.resources
+C:\Users\Sabina123\Source\Repos\aqashovas\Asp.NetFinalProject\AspNetFinalProject\obj\Debug\AspNetFinalProject.csproj.GenerateResource.cache
+C:\Users\Sabina123\Source\Repos\aqashovas\Asp.NetFinalProject\AspNetFinalProject\obj\Debug\AspNetFinalProject.Migrations.PromediPhoto.resources
+C:\Users\Sabina123\Source\Repos\aqashovas\Asp.NetFinalProject\AspNetFinalProject\obj\Debug\AspNetFinalProject.Migrations.Counter.resources
+C:\Users\Sabina123\Source\Repos\aqashovas\Asp.NetFinalProject\AspNetFinalProject\obj\Debug\AspNetFinalProject.Migrations.CounterUpdate.resources
+C:\Users\Sabina123\Source\Repos\aqashovas\Asp.NetFinalProject\AspNetFinalProject\obj\Debug\AspNetFinalProject.Migrations.DepartmentChanges.resources
+C:\Users\Sabina123\Source\Repos\aqashovas\Asp.NetFinalProject\AspNetFinalProject\obj\Debug\AspNetFinalProject.Migrations.SpecialityExpertIn.resources
+C:\Users\Sabina123\Source\Repos\aqashovas\Asp.NetFinalProject\AspNetFinalProject\obj\Debug\AspNetFinalProject.Migrations.ChangesDepartmentSpecialistandInfo.resources
+C:\Users\Sabina123\Source\Repos\aqashovas\Asp.NetFinalProject\AspNetFinalProject\obj\Debug\AspNetFinalProject.Migrations.ActiveTime.resources

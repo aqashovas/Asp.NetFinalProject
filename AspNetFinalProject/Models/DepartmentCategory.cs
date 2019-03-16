@@ -11,10 +11,16 @@ namespace AspNetFinalProject.Models
 
         public string Name { get; set; }
 
+        public string Logo { get; set; }
+
+        public string Text { get; set; }
+
         public List<Department> Departments { get; set; }
 
         public List<Appointment> Appointments { get; set; }
 
         public List<Doctor> Doctors { get; set; }
+
+        public List<Speciality> Specialities { get; set; }
     }
 }

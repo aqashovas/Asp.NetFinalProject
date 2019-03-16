@@ -17,11 +17,16 @@ namespace AspNetFinalProject.Models
 
         public string Slug { get; set; }
 
+        public string Address { get; set; }
+
+        public string Mail { get; set; }
+
+        public string Phone { get; set; }
+
         public int CategoryId { get; set; }
 
         public DepartmentCategory DepartmentCategory { get; set; }
 
-        public List<DepartmentInfo> DepartmentInfos { get; set; }
 
         
 

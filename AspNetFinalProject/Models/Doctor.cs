@@ -24,12 +24,8 @@ namespace AspNetFinalProject.Models
         public string Phone { get; set; }
 
         public string Mail { get; set; }
-
-        public string Speciality { get; set; }
-
+      
         public string Degree { get; set; }
-
-        public string ExpertIn { get; set; }
 
         public string Slug { get; set; }
 

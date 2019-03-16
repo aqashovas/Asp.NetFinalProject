@@ -9,12 +9,10 @@ namespace AspNetFinalProject.Models
     {
         public int Id { get; set; }
 
-        public int HappyPatiensCount { get; set; }
+        public string Name { get; set; }
 
-        public int ExperiencedDoctorsCount { get; set; }
+        public string Logo { get; set; }
 
-        public int SuccessfulOperationsCount { get; set; }
-
-        public int BedsCount { get; set; }
+        public int Count { get; set; }
     }
 }

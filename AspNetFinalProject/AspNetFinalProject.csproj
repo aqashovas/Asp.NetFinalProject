@@ -126,12 +126,52 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AboutController.cs" />
+    <Compile Include="Controllers\AppointmentController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\BlogsController.cs" />
+    <Compile Include="Controllers\ContactController.cs" />
+    <Compile Include="Controllers\DepartmentController.cs" />
+    <Compile Include="Controllers\DoctorsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201903160623163_Init.cs" />
+    <Compile Include="Migrations\201903160623163_Init.Designer.cs">
+      <DependentUpon>201903160623163_Init.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201903160632190_PromediPhoto.cs" />
+    <Compile Include="Migrations\201903160632190_PromediPhoto.Designer.cs">
+      <DependentUpon>201903160632190_PromediPhoto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201903160635468_Counter.cs" />
+    <Compile Include="Migrations\201903160635468_Counter.Designer.cs">
+      <DependentUpon>201903160635468_Counter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201903160639559_CounterUpdate.cs" />
+    <Compile Include="Migrations\201903160639559_CounterUpdate.Designer.cs">
+      <DependentUpon>201903160639559_CounterUpdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201903160645579_DepartmentChanges.cs" />
+    <Compile Include="Migrations\201903160645579_DepartmentChanges.Designer.cs">
+      <DependentUpon>201903160645579_DepartmentChanges.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201903160841209_SpecialityExpertIn.cs" />
+    <Compile Include="Migrations\201903160841209_SpecialityExpertIn.Designer.cs">
+      <DependentUpon>201903160841209_SpecialityExpertIn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201903160850391_ChangesDepartmentSpecialistandInfo.cs" />
+    <Compile Include="Migrations\201903160850391_ChangesDepartmentSpecialistandInfo.Designer.cs">
+      <DependentUpon>201903160850391_ChangesDepartmentSpecialistandInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201903161012361_ActiveTime.cs" />
+    <Compile Include="Migrations\201903161012361_ActiveTime.Designer.cs">
+      <DependentUpon>201903161012361_ActiveTime.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\About.cs" />
+    <Compile Include="Models\ActiveTime.cs" />
     <Compile Include="Models\Appointment.cs" />
     <Compile Include="Models\Author.cs" />
     <Compile Include="Models\Blog.cs" />
@@ -141,15 +181,18 @@
     <Compile Include="Models\Counter.cs" />
     <Compile Include="Models\Department.cs" />
     <Compile Include="Models\DepartmentCategory.cs" />
-    <Compile Include="Models\DepartmentInfo.cs" />
     <Compile Include="Models\Doctor.cs" />
+    <Compile Include="Models\ExpertIn.cs" />
     <Compile Include="Models\PatientFeedback.cs" />
     <Compile Include="Models\Promedi.cs" />
     <Compile Include="Models\PromediHospitalContext.cs" />
+    <Compile Include="Models\Question.cs" />
     <Compile Include="Models\Setting.cs" />
     <Compile Include="Models\Slider.cs" />
+    <Compile Include="Models\Speciality.cs" />
     <Compile Include="Models\Tag.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\VwContact.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-grid.css" />
@@ -161,6 +204,71 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Public\assets\css\animate.min.css" />
+    <Content Include="Public\assets\css\bootstrap.min.css" />
+    <Content Include="Public\assets\css\icofont.min.css" />
+    <Content Include="Public\assets\css\images\ui-icons_444444_256x240.html" />
+    <Content Include="Public\assets\css\images\ui-icons_555555_256x240.html" />
+    <Content Include="Public\assets\css\images\ui-icons_777620_256x240.html" />
+    <Content Include="Public\assets\css\images\ui-icons_777777_256x240.html" />
+    <Content Include="Public\assets\css\images\ui-icons_cc0000_256x240.html" />
+    <Content Include="Public\assets\css\images\ui-icons_ffffff_256x240.html" />
+    <Content Include="Public\assets\css\jquery.ui.css" />
+    <Content Include="Public\assets\css\magnific-popup.css" />
+    <Content Include="Public\assets\css\owl.carousel.min.css" />
+    <Content Include="Public\assets\css\owl.theme.default.min.css" />
+    <Content Include="Public\assets\css\owl.video.play.html" />
+    <Content Include="Public\assets\css\responsive.css" />
+    <Content Include="Public\assets\css\style.css" />
+    <Content Include="Public\assets\img\about-us-2.jpg" />
+    <Content Include="Public\assets\img\about-us.jpg" />
+    <Content Include="Public\assets\img\appointment-left-bg.jpg" />
+    <Content Include="Public\assets\img\bg.png" />
+    <Content Include="Public\assets\img\client.jpg" />
+    <Content Include="Public\assets\img\department\department-img1.jpg" />
+    <Content Include="Public\assets\img\doctor.png" />
+    <Content Include="Public\assets\img\doctors\1.jpg" />
+    <Content Include="Public\assets\img\doctors\2.jpg" />
+    <Content Include="Public\assets\img\doctors\3.jpg" />
+    <Content Include="Public\assets\img\doctors\4.jpg" />
+    <Content Include="Public\assets\img\error.png" />
+    <Content Include="Public\assets\img\favicon.png" />
+    <Content Include="Public\assets\img\logo.png" />
+    <Content Include="Uploads\logo.png" />
+    <Content Include="Public\assets\img\newsletter-bg.jpg" />
+    <Content Include="Public\assets\img\news\1.jpg" />
+    <Content Include="Public\assets\img\news\2.jpg" />
+    <Content Include="Public\assets\img\news\3.jpg" />
+    <Content Include="Public\assets\img\news\4.jpg" />
+    <Content Include="Public\assets\img\news\5.jpg" />
+    <Content Include="Public\assets\img\news\latest-post1.jpg" />
+    <Content Include="Public\assets\img\news\latest-post2.jpg" />
+    <Content Include="Public\assets\img\news\latest-post3.jpg" />
+    <Content Include="Public\assets\img\patient\1.jpg" />
+    <Content Include="Public\assets\img\patient\2.jpg" />
+    <Content Include="Public\assets\img\patient\3.jpg" />
+    <Content Include="Public\assets\img\patient\4.jpg" />
+    <Content Include="Public\assets\img\patient\5.jpg" />
+    <Content Include="Public\assets\img\services\1.jpg" />
+    <Content Include="Public\assets\img\services\2.jpg" />
+    <Content Include="Public\assets\img\services\3.jpg" />
+    <Content Include="Public\assets\img\slider\1.jpg" />
+    <Content Include="Public\assets\img\slider\2.jpg" />
+    <Content Include="Public\assets\img\slider\3.jpg" />
+    <Content Include="Public\assets\img\video-bg.jpg" />
+    <Content Include="Public\assets\js\bootstrap.min.js" />
+    <Content Include="Public\assets\js\contact-form-script.js" />
+    <Content Include="Public\assets\js\form-validator.min.js" />
+    <Content Include="Public\assets\js\jquery.ajaxchimp.min.js" />
+    <Content Include="Public\assets\js\jquery.counterup.min.js" />
+    <Content Include="Public\assets\js\jquery.magnific-popup.min.js" />
+    <Content Include="Public\assets\js\jquery.min.js" />
+    <Content Include="Public\assets\js\jquery.ui.js" />
+    <Content Include="Public\assets\js\owl.carousel.min.js" />
+    <Content Include="Public\assets\js\popper.min.js" />
+    <Content Include="Public\assets\js\promedi-map.js" />
+    <Content Include="Public\assets\js\script.js" />
+    <Content Include="Public\assets\js\waypoints.min.js" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -183,6 +291,8 @@
     <Content Include="Scripts\esm\popper.js.map" />
     <Content Include="Scripts\esm\popper-utils.min.js.map" />
     <Content Include="Scripts\esm\popper-utils.js.map" />
+    <Content Include="Public\assets\fonts\icofont.woff" />
+    <Content Include="Public\assets\fonts\icofont.woff2" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -213,8 +323,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Scripts\umd\popper.min.js.map" />
     <Content Include="Scripts\umd\popper.js.map" />
@@ -225,9 +333,22 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
+    <Content Include="Views\_VideoAndCounter.cshtml" />
+    <Content Include="Views\_PatientCtaArea.cshtml" />
+    <Content Include="Views\About\Index.cshtml" />
+    <Content Include="Views\_ExpertDoctors.cshtml" />
+    <Content Include="Views\Blogs\Index.cshtml" />
+    <Content Include="Views\Doctors\Index.cshtml" />
+    <Content Include="Views\_CallAction.cshtml" />
+    <Content Include="Views\Doctors\Details.cshtml" />
+    <Content Include="Views\Blogs\Details.cshtml" />
+    <Content Include="Views\Department\Details.cshtml" />
+    <Content Include="Views\Appointment\Index.cshtml" />
+    <Content Include="Views\Contact\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -239,6 +360,32 @@
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\index.d.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201903160623163_Init.resx">
+      <DependentUpon>201903160623163_Init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903160632190_PromediPhoto.resx">
+      <DependentUpon>201903160632190_PromediPhoto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903160635468_Counter.resx">
+      <DependentUpon>201903160635468_Counter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903160639559_CounterUpdate.resx">
+      <DependentUpon>201903160639559_CounterUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903160645579_DepartmentChanges.resx">
+      <DependentUpon>201903160645579_DepartmentChanges.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903160841209_SpecialityExpertIn.resx">
+      <DependentUpon>201903160841209_SpecialityExpertIn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903160850391_ChangesDepartmentSpecialistandInfo.resx">
+      <DependentUpon>201903160850391_ChangesDepartmentSpecialistandInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903161012361_ActiveTime.resx">
+      <DependentUpon>201903161012361_ActiveTime.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
