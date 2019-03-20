@@ -7,9 +7,7 @@ namespace AspNetFinalProject.Models
 {
     public class Doctor
     {
-        public int Id { get; set; }
-
-        public string Title { get; set; }
+        public int Id { get; set; }        
 
         public string Text { get; set; }
 
@@ -18,6 +16,8 @@ namespace AspNetFinalProject.Models
         public string FullName { get; set; }
 
         public string Photo { get; set; }
+
+        public string BigPhoto { get; set; }
 
         public string Address { get; set; }
 
@@ -37,9 +37,9 @@ namespace AspNetFinalProject.Models
 
         public string Twitter { get; set; }
 
-        public int CategoryId { get; set; }
+        public int SpecialityId { get; set; }
 
-        public DepartmentCategory DepartmentCategory { get; set; }
+        public Speciality Speciality { get; set; }
 
     }
 }
