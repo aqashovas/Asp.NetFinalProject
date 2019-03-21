@@ -49,7 +49,7 @@
                 <h3 class="title">Questions? Let our experts help!</h3>
                 <p>Team of Professionals</p>
 
-                <form id="contactForm">
+                <form id="contactForm" action="@Url.Action("message")" method="POST">
                     <div class="row">
                         <div class="col-lg-6 col-md-6">
                             <div class="form-group">
@@ -99,5 +99,9 @@
 </section>
 <!-- End Contact section -->
 <!-- Map -->
-<div id="map"></div>
+<div id="map" class="map-cont" data-lat="@Model.Setting.Lat" data-lng="@Model.Setting.Lng"></div>
+@section script{
+    <script src="~/Public/js/map.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB2uu6KHbLc_y7fyAVA4dpqSVM4w9ZnnUw"></script>
+}
 <!-- End Map -->

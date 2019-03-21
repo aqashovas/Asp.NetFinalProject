@@ -208,6 +208,7 @@
     <Compile Include="Models\Speciality.cs" />
     <Compile Include="Models\Tag.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\VwAppointment.cs" />
     <Compile Include="ViewModels\VwContact.cs" />
     <Compile Include="ViewModels\VwDoctor.cs" />
   </ItemGroup>
@@ -251,6 +252,7 @@
     <Content Include="Public\assets\img\error.png" />
     <Content Include="Public\assets\img\favicon.png" />
     <Content Include="Public\assets\img\logo.png" />
+    <Content Include="Public\js\map.js" />
     <Content Include="Uploads\bigdoctor1.jpg" />
     <Content Include="Uploads\doctor1.jpg" />
     <Content Include="Uploads\doctor2.jpg" />
