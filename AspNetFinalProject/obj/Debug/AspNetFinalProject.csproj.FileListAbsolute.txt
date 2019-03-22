@@ -187,3 +187,4 @@ C:\Users\Sabina123\Source\Repos\aqashovas\Asp.NetFinalProject\AspNetFinalProject
 C:\Users\Sabina123\Source\Repos\aqashovas\Asp.NetFinalProject\AspNetFinalProject\obj\Debug\AspNetFinalProject.Migrations.SpecialityId.resources
 C:\Users\Sabina123\Source\Repos\aqashovas\Asp.NetFinalProject\AspNetFinalProject\obj\Debug\AspNetFinalProject.Migrations.BigphotoDoctor.resources
 C:\Users\Sabina123\Source\Repos\aqashovas\Asp.NetFinalProject\AspNetFinalProject\obj\Debug\AspNetFinalProject.Migrations.DelTittle.resources
+C:\Users\Sabina123\Source\Repos\aqashovas\Asp.NetFinalProject\AspNetFinalProject\obj\Debug\AspNetFinalProject.Migrations.question.resources

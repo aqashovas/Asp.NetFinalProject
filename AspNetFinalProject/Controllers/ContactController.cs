@@ -6,6 +6,7 @@ using System.Net;
 using System.Net.Mail;
 using System.Web;
 using System.Web.Mvc;
+using AspNetFinalProject.Models;
 
 namespace AspNetFinalProject.Controllers
 {
@@ -21,7 +22,7 @@ namespace AspNetFinalProject.Controllers
             };
             return View(model);
         }
-        public JsonResult Message(string name, string email, string tel, string country, string message)
+        public JsonResult Message(string name, string email, string tel, string country, string message,Question question)
         {
             if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(email) || string.IsNullOrEmpty(message))
             {
@@ -52,7 +53,8 @@ namespace AspNetFinalProject.Controllers
             };
 
             client.Send(MailMessage);
-
+            db.Questions.Add(question);
+            db.SaveChanges();
 
             return Json("Your message sent,thanks", JsonRequestBehavior.AllowGet);
         }

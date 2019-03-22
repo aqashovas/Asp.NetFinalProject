@@ -48,6 +48,9 @@ namespace AspNetFinalProject.Models
 
         public DbSet<ActiveTime> ActiveTimes { get; set; }
 
+        public DbSet<Question> Questions { get; set; }
+
+
 
 
 

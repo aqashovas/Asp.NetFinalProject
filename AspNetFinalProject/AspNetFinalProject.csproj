@@ -185,6 +185,10 @@
     <Compile Include="Migrations\201903202128313_DelTittle.Designer.cs">
       <DependentUpon>201903202128313_DelTittle.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201903221329089_question.cs" />
+    <Compile Include="Migrations\201903221329089_question.Designer.cs">
+      <DependentUpon>201903221329089_question.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\About.cs" />
     <Compile Include="Models\ActiveTime.cs" />
@@ -420,6 +424,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201903202128313_DelTittle.resx">
       <DependentUpon>201903202128313_DelTittle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903221329089_question.resx">
+      <DependentUpon>201903221329089_question.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
