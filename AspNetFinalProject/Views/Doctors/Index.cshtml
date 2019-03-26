@@ -1,4 +1,5 @@
-﻿<!-- Page Title -->
+﻿@model List<Doctor>
+<!-- Page Title -->
 <div class="page-title">
     <div class="container">
         <div class="row">
@@ -17,8 +18,9 @@
 </div>
 <!-- End Page Title -->
 <!-- Expert Doctors -->
+<!--send data to partial view-->
 @{
-    Html.RenderPartial("~/Views/_ExpertDoctors.cshtml");
+    Html.RenderPartial("~/Views/_ExpertDoctors.cshtml",Model);
 }<!-- Edn Expert Doctors -->
 <!-- Call To Action -->
 @{

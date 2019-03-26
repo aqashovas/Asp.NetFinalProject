@@ -1,74 +1,79 @@
-﻿  <!-- Page Title -->
-<div class="page-title">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6 col-lg-7">
-                <h2>Doctor</h2>
-            </div>
+﻿@model Doctor
+ @{
+     ViewBag.Title = "Details";
+     List<Doctor>
+     doctors = ViewBag.Doctors as List<Doctor>;
 
-            <div class="col-md-6 col-lg-5">
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li>Doctor</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- End Page Title -->
-<!-- Doctors Details section -->
-<section class="doctors-details ptb-100">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-md-12">
-                <div class="doctors-details">
-                    <div class="img">
-                        <img src="~/Public/assets/img/slider/1.jpg" alt="department-details">
+
+   }
+
+        <!-- Page Title -->
+        <div class="page-title">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 col-lg-7">
+                        <h2>Doctor</h2>
                     </div>
 
-                    <div class="doctors-desc">
-                        <h3>John Smith</h3>
-                        <p>Quisque pellentesque nibh ut sem elementum pulvinar. Integer bibendum, ligula a dapibus bibendum, massa lectus condimentum augue, sit amet rhoncus nibh arcu ut urna. Nam imperdiet id lectus sed vestibulum. Ut tempor libero sit amet metus fermentum ullamcorper. Nullam scelerisque iaculis purus eu varius. Integer molestie in leo et consectetur.</p>
-
-                        <p>Donec varius velit quis tellus eleifend iaculis. Aenean mi nulla, aliquam placerat orci non, maximus semper ligula.Etiam porta urna eget neque imperdiet efficitur. Aliquam odio orci, vehicula in interdum ultricies, bibendum in velit. Quisque pellentesque nibh ut sem elementum pulvinar. Integer bibendum, ligula a dapibus bibendum, massa lectus condimentum augue, sit amet rhoncus nibh arcu ut urna. Nam imperdiet id lectus sed vestibulum. Ut tempor libero sit amet metus fermentum ullamcorper. Nullam scelerisque iaculis purus eu varius. Integer molestie in leo et consectetur.</p>
-
-                        <p>Donec varius velit quis tellus eleifend iaculis. Aenean mi nulla, aliquam placerat orci non, maximus semper ligula.Etiam porta urna eget neque imperdiet efficitur. Aliquam odio orci, vehicula in interdum ultricies, bibendum in velit. Quisque pellentesque nibh ut sem elementum pulvinar. Integer bibendum, ligula a dapibus bibendum, massa lectus condimentum augue, sit amet rhoncus nibh arcu ut urna. Nam imperdiet id lectus sed vestibulum. Ut tempor libero sit amet metus fermentum ullamcorper. Nullam scelerisque iaculis purus eu varius. Integer molestie in leo et consectetur.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-12">
-                <div class="doctors-sidebar">
-                    <div class="doctors-info">
-                        <h4>Profile Details</h4>
+                    <div class="col-md-6 col-lg-5">
                         <ul>
-                            <li>Address: <span>1085 Valencia St, CA 94110</span></li>
-                            <li>Phone: <span>(774) 941-9876</span></li>
-                            <li>Email: <span><a href="#">example@example.com</a></span></li>
-                            <li>Speciality: <span>Orthopaedic surgeon</span></li>
-                            <li>Degree: <span>M.D. of Medicine</span></li>
-                            <li>Expert in: <span>Sports injuries, Foot fracture</span></li>
-                            <li>Categories: <span><a href="#">Gastroenterology</a></span></li>
-                        </ul>
-                    </div>
-
-                    <div class="doctors-social">
-                        <ul>
-                            <li><a href="#"><i class="icofont-facebook"></i></a></li>
-                            <li><a href="#"><i class="icofont-twitter"></i></a></li>
-                            <li><a href="#"><i class="icofont-instagram"></i></a></li>
-                            <li><a href="#"><i class="icofont-linkedin"></i></a></li>
+                            <li><a href=@Url.Action("index","home")>Home</a></li>
+                            <li>Doctor</li>
                         </ul>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
-<!-- End Doctors Details section -->
-<!-- Call To Action -->
-@{
-    Html.RenderPartial("~/Views/_CallAction.cshtml");
-}
+        <!-- End Page Title -->
+        <!-- Doctors Details section -->
+        <section class="doctors-details ptb-100">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-md-12">
+                        <div class="doctors-details">
+                            <div class="img">
+                                <img src="~/Uploads/@Model.BigPhoto" alt="department-details">
+                            </div>
 
-<!-- End Call To Action -->
+                            <div class="doctors-desc">
+                                <h3>@Model.FullName</h3>
+                                <p>@Model.Moretext</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-12">
+                        <div class="doctors-sidebar">
+                            <div class="doctors-info">
+                                <h4>Profile Details</h4>
+                                <ul>
+                                    <li>Address: <span>@Model.Address</span></li>
+                                    <li>Phone: <span>@Model.Phone</span></li>
+                                    <li>Email: <span><a href="#">@Model.Mail</a></span></li>
+                                    <li>Speciality: <span>@Model.Speciality.Name</span></li>
+                                    <li>Degree: <span>@Model.Degree</span></li>
+                                    <li>Expert in: <span>@*@Model.Speciality.ExpertIns*@</span></li>
+                                    <li>Categories: <span><a href="#">@*dssf*@</a></span></li>
+                                </ul>
+                            </div>
+
+                            <div class="doctors-social">
+                                <ul>
+                                    <li><a href="#"><i class="icofont-facebook"></i></a></li>
+                                    <li><a href="#"><i class="icofont-twitter"></i></a></li>
+                                    <li><a href="#"><i class="icofont-instagram"></i></a></li>
+                                    <li><a href="#"><i class="icofont-linkedin"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End Doctors Details section -->
+        <!-- Call To Action -->
+        @{
+            Html.RenderPartial("~/Views/_CallAction.cshtml");
+        }
+
+        <!-- End Call To Action -->

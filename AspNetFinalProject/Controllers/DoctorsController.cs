@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using AspNetFinalProject.Models;
 
 namespace AspNetFinalProject.Controllers
 {
@@ -12,16 +13,26 @@ namespace AspNetFinalProject.Controllers
         // GET: Doctors
         public ActionResult Index()
         {
-            //VwDoctor model = new VwDoctor
-            //{
-            //   Doctor=db.Doctors.ToList(),
-
-            //};
-            return View();
+            var doctors = db.Doctors.ToList();
+            return View(doctors);
         }
-        public ActionResult Details()
+        public ActionResult Details(string slug)
         {
-            return View();
+            if (string.IsNullOrEmpty(slug))
+            {
+                return HttpNotFound();
+            }
+
+            var doctor = db.Doctors.FirstOrDefault(s => s.Slug == slug);
+
+            if (doctor == null)
+            {
+                return HttpNotFound();
+            }
+
+            ViewBag.Doctors = db.Doctors.ToList();
+
+            return View(doctor);
         }
     }
 }
