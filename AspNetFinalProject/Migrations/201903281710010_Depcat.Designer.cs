@@ -7,13 +7,13 @@ namespace AspNetFinalProject.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class DepartmentCat : IMigrationMetadata
+    public sealed partial class Depcat : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(DepartmentCat));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Depcat));
         
         string IMigrationMetadata.Id
         {
-            get { return "201903202115599_DepartmentCat"; }
+            get { return "201903281710010_Depcat"; }
         }
         
         string IMigrationMetadata.Source

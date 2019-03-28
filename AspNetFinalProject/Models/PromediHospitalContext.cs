@@ -50,6 +50,9 @@ namespace AspNetFinalProject.Models
 
         public DbSet<Question> Questions { get; set; }
 
+        public DbSet<Eventhour> Eventhours { get; set; }
+
+
 
 
 

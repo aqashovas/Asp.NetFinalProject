@@ -13,7 +13,7 @@ namespace AspNetFinalProject.Controllers
         // GET: Doctors
         public ActionResult Index()
         {
-            var doctors = db.Doctors.ToList();
+            var doctors = db.Doctors.Include("Speciality").ToList();
             return View(doctors);
         }
         public ActionResult Details(string slug)
@@ -30,7 +30,7 @@ namespace AspNetFinalProject.Controllers
                 return HttpNotFound();
             }
 
-            ViewBag.Doctors = db.Doctors.ToList();
+            ViewBag.Doctors = db.Doctors.Include("Speciality").Include("Speciality.ExpertIns").Include("Speciality.DepartmentCategory").ToList();
 
             return View(doctor);
         }

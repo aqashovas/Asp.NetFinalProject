@@ -1,4 +1,12 @@
-﻿  <!-- Page Title -->
+﻿@model Department
+@{
+    ViewBag.Title = "Details";
+    List<Department>
+    departments = ViewBag.Departments as List<Department>;
+
+
+}
+<!-- Page Title -->
 <div class="page-title">
     <div class="container">
         <div class="row">
@@ -8,7 +16,7 @@
 
             <div class="col-md-6 col-lg-5">
                 <ul>
-                    <li><a href="index.html">Home</a></li>
+                    <li><a href=@Url.Action("home")>Home</a></li>
                     <li>Department</li>
                 </ul>
             </div>
@@ -23,14 +31,13 @@
             <div class="col-lg-8 col-md-12">
                 <div class="department-details">
                     <div class="img">
-                        <img src="~/Public/assets/img/slider/1.jpg" alt="department-details">
+                        <img src="~/Uploads/@Model.Photo" alt="department-details">
                     </div>
 
                     <div class="department-desc">
-                        <h3>Get the right care based on your individual needs.</h3>
-                        <p>Quisque pellentesque nibh ut sem elementum pulvinar. Integer bibendum, ligula a dapibus bibendum, massa lectus condimentum augue, sit amet rhoncus nibh arcu ut urna. Nam imperdiet id lectus sed vestibulum. Ut tempor libero sit amet metus fermentum ullamcorper. Nullam scelerisque iaculis purus eu varius. Integer molestie in leo et consectetur.</p>
+                        <h3>@Model.Title</h3>
+                        <p>@Model.Text</p>
 
-                        <p>Donec varius velit quis tellus eleifend iaculis. Aenean mi nulla, aliquam placerat orci non, maximus semper ligula.Etiam porta urna eget neque imperdiet efficitur. Aliquam odio orci, vehicula in interdum ultricies, bibendum in velit. Quisque pellentesque nibh ut sem elementum pulvinar. Integer bibendum, ligula a dapibus bibendum, massa lectus condimentum augue, sit amet rhoncus nibh arcu ut urna. Nam imperdiet id lectus sed vestibulum. Ut tempor libero sit amet metus fermentum ullamcorper. Nullam scelerisque iaculis purus eu varius. Integer molestie in leo et consectetur.</p>
                     </div>
 
                     <div class="share-department">

@@ -169,10 +169,6 @@
     <Compile Include="Migrations\201903161012361_ActiveTime.Designer.cs">
       <DependentUpon>201903161012361_ActiveTime.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201903202115599_DepartmentCat.cs" />
-    <Compile Include="Migrations\201903202115599_DepartmentCat.Designer.cs">
-      <DependentUpon>201903202115599_DepartmentCat.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\201903202119139_SpecialityId.cs" />
     <Compile Include="Migrations\201903202119139_SpecialityId.Designer.cs">
       <DependentUpon>201903202119139_SpecialityId.cs</DependentUpon>
@@ -189,6 +185,14 @@
     <Compile Include="Migrations\201903221329089_question.Designer.cs">
       <DependentUpon>201903221329089_question.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201903281710010_Depcat.cs" />
+    <Compile Include="Migrations\201903281710010_Depcat.Designer.cs">
+      <DependentUpon>201903281710010_Depcat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201903281731172_EventHours.cs" />
+    <Compile Include="Migrations\201903281731172_EventHours.Designer.cs">
+      <DependentUpon>201903281731172_EventHours.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\About.cs" />
     <Compile Include="Models\ActiveTime.cs" />
@@ -202,6 +206,7 @@
     <Compile Include="Models\Department.cs" />
     <Compile Include="Models\DepartmentCategory.cs" />
     <Compile Include="Models\Doctor.cs" />
+    <Compile Include="Models\Eventhour.cs" />
     <Compile Include="Models\ExpertIn.cs" />
     <Compile Include="Models\PatientFeedback.cs" />
     <Compile Include="Models\Promedi.cs" />
@@ -258,6 +263,7 @@
     <Content Include="Public\assets\img\logo.png" />
     <Content Include="Public\js\map.js" />
     <Content Include="Uploads\bigdoctor1.jpg" />
+    <Content Include="Uploads\department1.jpg" />
     <Content Include="Uploads\doctor1.jpg" />
     <Content Include="Uploads\doctor2.jpg" />
     <Content Include="Uploads\doctor3.jpg" />
@@ -413,9 +419,6 @@
     <EmbeddedResource Include="Migrations\201903161012361_ActiveTime.resx">
       <DependentUpon>201903161012361_ActiveTime.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201903202115599_DepartmentCat.resx">
-      <DependentUpon>201903202115599_DepartmentCat.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201903202119139_SpecialityId.resx">
       <DependentUpon>201903202119139_SpecialityId.cs</DependentUpon>
     </EmbeddedResource>
@@ -427,6 +430,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201903221329089_question.resx">
       <DependentUpon>201903221329089_question.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903281710010_Depcat.resx">
+      <DependentUpon>201903281710010_Depcat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903281731172_EventHours.resx">
+      <DependentUpon>201903281731172_EventHours.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -52,8 +52,8 @@
                                     <li>Email: <span><a href="#">@Model.Mail</a></span></li>
                                     <li>Speciality: <span>@Model.Speciality.Name</span></li>
                                     <li>Degree: <span>@Model.Degree</span></li>
-                                    <li>Expert in: <span>@*@Model.Speciality.ExpertIns*@</span></li>
-                                    <li>Categories: <span><a href="#">@*dssf*@</a></span></li>
+                                    <li>Expert in: <span>@string.Join(",",Model.Speciality.ExpertIns)</span></li>
+                                    <li>Categories: <span><a href="#">@Model.Speciality.DepartmentCategory.Name</a></span></li>
                                 </ul>
                             </div>
 

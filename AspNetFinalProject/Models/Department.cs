@@ -23,12 +23,16 @@ namespace AspNetFinalProject.Models
 
         public string Phone { get; set; }
 
-        public int CategoryId { get; set; }
+        public string CategoryName { get; set; }
 
-        public DepartmentCategory DepartmentCategory { get; set; }
+        public string HeadofDepartment { get; set; }
 
 
-        
+        //public int DepartmentCategoryId { get; set; }
+
+
+
+
 
 
     }

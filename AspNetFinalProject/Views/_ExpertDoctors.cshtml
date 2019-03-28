@@ -41,8 +41,9 @@
                     </div>
 
                     <div class="caption-text text-center">
-                        <a href=@Url.Action("details","doctors",new { Slug=item.Slug })></a>
-                        <h3>@item.FullName</h3>
+                        <a href=@Url.Action("details","doctors",new { Slug=item.Slug })>
+                            <h3>@item.FullName</h3>
+                        </a>
                         <span class="designation mb-10">@item.Speciality.Name</span>
                         <p>@item.Text</p>
                     </div>

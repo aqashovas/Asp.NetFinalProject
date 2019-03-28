@@ -1,4 +1,10 @@
-﻿<!doctype html>
+﻿@{ 
+    Setting setting = ViewBag.Setting as Setting;
+    List<Department> departments = ViewBag.Departments as List<Department>;
+
+}
+
+<!doctype html>
 <html lang="zxx">
 
 <!-- Mirrored from envytheme.com/tf-demo/promedi/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 10 Mar 2019 21:20:57 GMT -->
@@ -128,14 +134,19 @@
                                     Departments
                                 </a>
                                 <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="department-details.html">Cardiology</a>
+                                    @foreach (var item in departments.ToList())
+                                    {
+                                        <a class="dropdown-item" href=@Url.Action("details","department",new { Slug=item.Slug })>@item.CategoryName</a>
+
+                                    }
+                                    @*<a class="dropdown-item" href="department-details.html">Cardiology</a>
                                     <a class="dropdown-item" href="department-details.html">Gynecology</a>
                                     <a class="dropdown-item" href="department-details.html">Neurology</a>
                                     <a class="dropdown-item" href="department-details.html">Orthopedics</a>
                                     <a class="dropdown-item" href="department-details.html">Gastrology</a>
                                     <a class="dropdown-item" href="department-details.html">Pulmonology</a>
                                     <a class="dropdown-item" href="department-details.html">Laboratory</a>
-                                    <a class="dropdown-item" href="department-details.html">Urology</a>
+                                    <a class="dropdown-item" href="department-details.html">Urology</a>*@
                                 </div>
                             </li>
 
@@ -145,9 +156,8 @@
                                 </a>
                                 <div class="dropdown-menu">
                                     <a class="dropdown-item" href="services.html">Services</a>
-                                    <a class="dropdown-item" href="doctors.html">Our Doctor</a>
-                                    <a class="dropdown-item" href="doctors-details.html">Single Doctor</a>
-                                    <a class="dropdown-item" href="appointment.html">Book Appoinment</a>
+                                    <a class="dropdown-item" href=@Url.Action("doctors")>Our Doctors</a>
+                                    <a class="dropdown-item" href=@Url.Action("appointment")>Book Appoinment</a>
                                     <a class="dropdown-item" href="faq.html">FAQ</a>
                                     <a class="dropdown-item" href="error.html">Error 404</a>
                                 </div>
