@@ -1,0 +1,139 @@
+﻿@model AspNetFinalProject.Models.Setting
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Manage/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Setting</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Logo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Logo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Linkedin)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Linkedin)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Facebook)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Facebook)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Instagram)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Instagram)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Twitter)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Twitter)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GooglePlus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GooglePlus)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Mail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Phone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Phone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Lat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Lat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Lng)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Lng)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Location)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Location)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ContactMail1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ContactMail1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ContactPhone1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ContactPhone1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ContactMail2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ContactMail2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ContactPhone2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ContactPhone2)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
