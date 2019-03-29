@@ -14,6 +14,22 @@ namespace AspNetFinalProject
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+                name: "BlogUrl",
+                url: "details/{*slug}",
+                defaults: new { controller = "Blogs", action = "Details", slug = UrlParameter.Optional }
+            );
+          
+            routes.MapRoute(
+            name: "DepartmentUrl",
+            url: "details/{*slug}",
+            defaults: new { controller = "Department", action = "Details", slug = UrlParameter.Optional }
+        );
+            routes.MapRoute(
+            name: "DoctorUrl",
+            url: "details/{*slug}",
+            defaults: new { controller = "Doctors", action = "Details", slug = UrlParameter.Optional }
+        );
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }

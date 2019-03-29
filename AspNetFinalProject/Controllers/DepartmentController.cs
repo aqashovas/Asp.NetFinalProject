@@ -24,7 +24,7 @@ namespace AspNetFinalProject.Controllers
                 return HttpNotFound();
             }
 
-            ViewBag.Department = db.Departments.ToList();
+            ViewBag.Department = db.Departments.Include("Eventhours").ToList();
 
             
             return View(department);

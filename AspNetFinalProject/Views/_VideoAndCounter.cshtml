@@ -1,4 +1,5 @@
-﻿<section class="video-section ptb-100">
+﻿@model List<Counter>
+<section class="video-section ptb-100">
     <div class="container">
         <div class="section-title white-title">
             <h2>Watch Our Video</h2>
@@ -26,37 +27,19 @@
 <div class="counter-section pt-100 pb-70 pt-330">
     <div class="container">
         <div class="row">
-            <div class="col-sm-6 col-md-6 col-lg-3">
-                <div class="single-counter">
-                    <i class="icofont-simple-smile"></i>
-                    <h3 class="counter">25000</h3>
-                    <p>Happy Patients</p>
+            @foreach (var item in Model)
+            {
+                <div class="col-sm-6 col-md-6 col-lg-3">
+                    <div class="single-counter">
+                        <i class="@item.Logo"></i>
+                        <h3 class="counter">@item.Count</h3>
+                        <p>@item.Name</p>
+                    </div>
                 </div>
-            </div>
+            }
 
-            <div class="col-sm-6 col-md-6 col-lg-3">
-                <div class="single-counter">
-                    <i class="icofont-doctor-alt"></i>
-                    <h3 class="counter">180</h3>
-                    <p>Experienced Doctors</p>
-                </div>
-            </div>
 
-            <div class="col-sm-6 col-md-6 col-lg-3">
-                <div class="single-counter">
-                    <i class="icofont-operation-theater"></i>
-                    <h3 class="counter">1500</h3>
-                    <p>Successful Operations</p>
-                </div>
-            </div>
-
-            <div class="col-sm-6 col-md-6 col-lg-3">
-                <div class="single-counter">
-                    <i class="icofont-bed"></i>
-                    <h3 class="counter">2800</h3>
-                    <p>Numbers of Beds</p>
-                </div>
-            </div>
+            
         </div>
     </div>
 </div>

@@ -189,3 +189,6 @@ C:\Users\Sabina123\Source\Repos\aqashovas\Asp.NetFinalProject\AspNetFinalProject
 C:\Users\Sabina123\Source\Repos\aqashovas\Asp.NetFinalProject\AspNetFinalProject\obj\Debug\AspNetFinalProject.Migrations.question.resources
 C:\Users\Sabina123\Source\Repos\aqashovas\Asp.NetFinalProject\AspNetFinalProject\obj\Debug\AspNetFinalProject.Migrations.Depcat.resources
 C:\Users\Sabina123\Source\Repos\aqashovas\Asp.NetFinalProject\AspNetFinalProject\obj\Debug\AspNetFinalProject.Migrations.EventHours.resources
+C:\Users\Sabina123\Source\Repos\aqashovas\Asp.NetFinalProject\AspNetFinalProject\obj\Debug\AspNetFinalProject.Migrations.headdepartment.resources
+C:\Users\Sabina123\Source\Repos\aqashovas\Asp.NetFinalProject\AspNetFinalProject\obj\Debug\AspNetFinalProject.Migrations.eventhourrel.resources
+C:\Users\Sabina123\Source\Repos\aqashovas\Asp.NetFinalProject\AspNetFinalProject\obj\Debug\AspNetFinalProject.Migrations.departmentsociallinks.resources

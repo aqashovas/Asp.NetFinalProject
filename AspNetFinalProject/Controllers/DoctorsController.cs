@@ -16,14 +16,14 @@ namespace AspNetFinalProject.Controllers
             var doctors = db.Doctors.Include("Speciality").ToList();
             return View(doctors);
         }
-        public ActionResult Details(string slug)
+        public ActionResult Details(string Slug)
         {
-            if (string.IsNullOrEmpty(slug))
+            if (string.IsNullOrEmpty(Slug))
             {
                 return HttpNotFound();
             }
 
-            var doctor = db.Doctors.FirstOrDefault(s => s.Slug == slug);
+            var doctor = db.Doctors.FirstOrDefault(s => s.Slug == Slug);
 
             if (doctor == null)
             {

@@ -1,4 +1,7 @@
-﻿ <!-- Page Title -->
+﻿@{
+    @model VwAbout
+}
+<!-- Page Title -->
 <div class="page-title">
     <div class="container">
         <div class="row">
@@ -8,7 +11,7 @@
 
             <div class="col-md-6 col-lg-5">
                 <ul>
-                    <li><a href="index.html">Home</a></li>
+                    <li><a href=@Url.Action("index","home")>Home</a></li>
                     <li>About Us</li>
                 </ul>
             </div>
@@ -25,59 +28,47 @@
         </div>
 
         <div class="row">
-            <div class="col-md-6 col-lg-4">
-                <div class="single-box">
-                    <div class="icon">
-                        <i class="icofont-stethoscope-alt"></i>
+          
+                @foreach (var item in Model.Promedismini.ToList())
+                {
+                    <div class="col-md-6 col-lg-4">
+                        <div class="single-box">
+                            <div class="icon">
+                                <i class="@item.Logo"></i>
+                            </div>
+
+                            <h3>@item.Name</h3>
+                            <p>@item.Text</p>
+                        </div>
                     </div>
+                }
+          
 
-                    <h3>Modern Clinic</h3>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text.</p>
-                </div>
-            </div>
 
-            <div class="col-md-6 col-lg-4">
-                <div class="single-box">
-                    <div class="icon">
-                        <i class="icofont-doctor-alt"></i>
-                    </div>
 
-                    <h3>Qualified Doctors</h3>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text.</p>
-                </div>
-            </div>
 
-            <div class="col-md-6 col-lg-4 offset-md-3 offset-lg-0">
-                <div class="single-box">
-                    <div class="icon">
-                        <i class="icofont-ambulance"></i>
-                    </div>
 
-                    <h3>Emergency Cases</h3>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text.</p>
-                </div>
-            </div>
+         
         </div>
 
         <div class="welcome-inner-content">
             <div class="row justify-content-center align-items-center">
                 <div class="col-lg-6">
                     <div class="welcome-image">
-                        <img src="~/Public/assets/img/about-us-2.jpg" alt="about">
+                        <img src="~/Uploads/@Model.About.Photo" alt="about">
                     </div>
                 </div>
 
                 <div class="col-lg-6">
                     <span>About our medical</span>
-                    <h3>Happiness is nothing more than good health and a bad memory</h3>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text.</p>
+                    <h3>@Model.About.Title</h3>
+                    <p>@Model.About.Text</p>
                     <ul>
-                        <li>Qualified Doctors</li>
-                        <li>Outdoor Checkup</li>
-                        <li>24/7 Help Center</li>
-                        <li>Modern Clinic</li>
-                        <li>Emergency Cases</li>
-                        <li>Breast Screening</li>
+                        @foreach (var item in Model.Promedisall.ToList())
+                        {
+                            <li>@item.Name</li>
+                        }
+                       
                     </ul>
                     <a href="#" class="default-btn">Learn More</a>
                 </div>
@@ -88,12 +79,12 @@
 <!-- End Welcome section -->
 <!-- Video And Counter Section -->
 @{
-    Html.RenderPartial("~/Views/_VideoAndCounter.cshtml");
+    Html.RenderPartial("~/Views/_VideoAndCounter.cshtml",Model.Counters);
 }
 <!-- End Vide and counter section -->
 <!-- Expert Doctors -->
 @{
-    Html.RenderPartial("~/Views/_ExpertDoctors.cshtml");
+    Html.RenderPartial("~/Views/_ExpertDoctors.cshtml", Model.Doctors);
 }<!-- Edn Expert Doctors -->
 <!-- Call To Action -->
 @{
@@ -103,6 +94,8 @@
 <!-- End Call To Action -->
 <!-- Patient Feedback and Cta Area-->
 @{
-    Html.RenderPartial("~/Views/_PatientCtaArea.cshtml");
+    Html.RenderPartial("~/Views/_PatientCtaArea.cshtml",Model.PatientFeedbacks);
 }
 <!-- End Patient Feedback and Cta Area-->
+
+   

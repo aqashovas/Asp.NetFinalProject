@@ -1,4 +1,5 @@
-﻿ <!-- Patient Feedback -->
+﻿@model List<PatientFeedback>
+ <!-- Patient Feedback -->
 <section class="patient-feedback ptb-100">
     <div class="container">
         <div class="section-title">
@@ -7,70 +8,22 @@
         </div>
 
         <div class="feedback-carousel owl-carousel owl-theme owl-theme-2">
-            <div class="single-feedback">
-                <div class="feedback-text">
-                    <i class="icofont-quote-right"></i>
+            @foreach (var item in Model.ToList())
+            {
+                <div class="single-feedback">
+                    <div class="feedback-text">
+                        <i class="icofont-quote-right"></i>
 
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.</p>
+                        <p>@item.Text</p>
 
-                    <div class="profile-content">
-                        <img src="~/Public/assets/img/patient/1.jpg" alt="Patient" />
-                        <h4>Anym Jackson</h4>
+                        <div class="profile-content">
+                            <img src="~/Uploads/@item.Photo" alt="Patient" />
+                            <h4>@item.Name</h4>
+                        </div>
                     </div>
                 </div>
-            </div>
-
-            <div class="single-feedback">
-                <div class="feedback-text">
-                    <i class="icofont-quote-right"></i>
-
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.</p>
-
-                    <div class="profile-content">
-                        <img src="~/Public/assets/img/patient/2.jpg" alt="Patient" />
-                        <h4>Mark Rylance</h4>
-                    </div>
-                </div>
-            </div>
-
-            <div class="single-feedback">
-                <div class="feedback-text">
-                    <i class="icofont-quote-right"></i>
-
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.</p>
-
-                    <div class="profile-content">
-                        <img src="~/Public/assets/img/patient/3.jpg" alt="Patient" />
-                        <h4>Natalie Portman</h4>
-                    </div>
-                </div>
-            </div>
-
-            <div class="single-feedback">
-                <div class="feedback-text">
-                    <i class="icofont-quote-right"></i>
-
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.</p>
-
-                    <div class="profile-content">
-                        <img src="~/Public/assets/img/patient/4.jpg" alt="Patient" />
-                        <h4>Idris Elba</h4>
-                    </div>
-                </div>
-            </div>
-
-            <div class="single-feedback">
-                <div class="feedback-text">
-                    <i class="icofont-quote-right"></i>
-
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.</p>
-
-                    <div class="profile-content">
-                        <img src="~/Public/assets/img/patient/5.jpg" alt="Patient" />
-                        <h4>Scarlett Johansson</h4>
-                    </div>
-                </div>
-            </div>
+            }
+     
         </div>
     </div>
 </section>

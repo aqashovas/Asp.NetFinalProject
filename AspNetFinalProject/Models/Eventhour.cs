@@ -12,5 +12,9 @@ namespace AspNetFinalProject.Models
         public string Thepersonincharge { get; set; }
 
         public string DayTime { get; set; }
+
+        public int DepartmentId { get; set; }
+
+        public Department Department { get; set; }
     }
 }

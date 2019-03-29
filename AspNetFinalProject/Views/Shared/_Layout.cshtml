@@ -136,17 +136,10 @@
                                 <div class="dropdown-menu">
                                     @foreach (var item in departments.ToList())
                                     {
-                                        <a class="dropdown-item" href=@Url.Action("details","department",new { Slug=item.Slug })>@item.CategoryName</a>
+                                        <a class="dropdown-item" href=@Url.Action("details","department",new { slug=item.Slug })>@item.CategoryName</a>
 
                                     }
-                                    @*<a class="dropdown-item" href="department-details.html">Cardiology</a>
-                                    <a class="dropdown-item" href="department-details.html">Gynecology</a>
-                                    <a class="dropdown-item" href="department-details.html">Neurology</a>
-                                    <a class="dropdown-item" href="department-details.html">Orthopedics</a>
-                                    <a class="dropdown-item" href="department-details.html">Gastrology</a>
-                                    <a class="dropdown-item" href="department-details.html">Pulmonology</a>
-                                    <a class="dropdown-item" href="department-details.html">Laboratory</a>
-                                    <a class="dropdown-item" href="department-details.html">Urology</a>*@
+                                   
                                 </div>
                             </li>
 
@@ -155,11 +148,10 @@
                                     Pages
                                 </a>
                                 <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="services.html">Services</a>
-                                    <a class="dropdown-item" href=@Url.Action("doctors")>Our Doctors</a>
+                                   
+                                    <a class="dropdown-item" href=@Url.Action("index","doctors")>Our Doctors</a>
                                     <a class="dropdown-item" href=@Url.Action("appointment")>Book Appoinment</a>
-                                    <a class="dropdown-item" href="faq.html">FAQ</a>
-                                    <a class="dropdown-item" href="error.html">Error 404</a>
+                                   
                                 </div>
                             </li>
 
@@ -169,12 +161,11 @@
                                 </a>
                                 <div class="dropdown-menu">
                                     <a class="dropdown-item" href=@Url.Action("index","blogs")>Blog</a>
-                                    <a class="dropdown-item" href="blog-details.html">Single Blog</a>
                                 </div>
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link" href="contact.html">Contact</a>
+                                <a class="nav-link" href=@Url.Action("contact")">Contact</a>
                             </li>
                         </ul>
 

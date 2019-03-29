@@ -25,7 +25,18 @@ namespace AspNetFinalProject.Models
 
         public string CategoryName { get; set; }
 
-        public string HeadofDepartment { get; set; }
+        public string HeadofDepartmentposition { get; set; }
+
+        public string HeadofDepartmentname { get; set; }
+
+        public string Facebook { get; set; }
+
+        public string Instagram { get; set; }
+
+        public string Twitter { get; set; }
+
+        public List<Eventhour> Eventhours { get; set; }
+
 
 
         //public int DepartmentCategoryId { get; set; }

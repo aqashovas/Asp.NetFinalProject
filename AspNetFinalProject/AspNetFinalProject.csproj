@@ -126,6 +126,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Manage\ManageAreaRegistration.cs" />
     <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\AppointmentController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
@@ -193,6 +194,18 @@
     <Compile Include="Migrations\201903281731172_EventHours.Designer.cs">
       <DependentUpon>201903281731172_EventHours.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201903290757298_headdepartment.cs" />
+    <Compile Include="Migrations\201903290757298_headdepartment.Designer.cs">
+      <DependentUpon>201903290757298_headdepartment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201903290800172_eventhourrel.cs" />
+    <Compile Include="Migrations\201903290800172_eventhourrel.Designer.cs">
+      <DependentUpon>201903290800172_eventhourrel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201903290818074_departmentsociallinks.cs" />
+    <Compile Include="Migrations\201903290818074_departmentsociallinks.Designer.cs">
+      <DependentUpon>201903290818074_departmentsociallinks.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\About.cs" />
     <Compile Include="Models\ActiveTime.cs" />
@@ -217,9 +230,11 @@
     <Compile Include="Models\Speciality.cs" />
     <Compile Include="Models\Tag.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\VwAbout.cs" />
     <Compile Include="ViewModels\VwAppointment.cs" />
     <Compile Include="ViewModels\VwContact.cs" />
     <Compile Include="ViewModels\VwDoctor.cs" />
+    <Compile Include="ViewModels\VwHome.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-grid.css" />
@@ -261,12 +276,16 @@
     <Content Include="Public\assets\img\error.png" />
     <Content Include="Public\assets\img\favicon.png" />
     <Content Include="Public\assets\img\logo.png" />
+    <Content Include="Public\js\main.js" />
     <Content Include="Public\js\map.js" />
+    <Content Include="Uploads\aboutus2.jpg" />
     <Content Include="Uploads\bigdoctor1.jpg" />
     <Content Include="Uploads\department1.jpg" />
     <Content Include="Uploads\doctor1.jpg" />
     <Content Include="Uploads\doctor2.jpg" />
     <Content Include="Uploads\doctor3.jpg" />
+    <Content Include="Uploads\feeadback1.jpg" />
+    <Content Include="Uploads\feedback2.jpg" />
     <Content Include="Uploads\logo.png" />
     <Content Include="Public\assets\img\newsletter-bg.jpg" />
     <Content Include="Public\assets\img\news\1.jpg" />
@@ -326,6 +345,14 @@
     <Content Include="Scripts\esm\popper-utils.js.map" />
     <Content Include="Public\assets\fonts\icofont.woff" />
     <Content Include="Public\assets\fonts\icofont.woff2" />
+    <Content Include="Areas\Manage\Views\web.config" />
+    <Content Include="Areas\Manage\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Manage\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Manage\Views\Eventhours\Create.cshtml" />
+    <Content Include="Areas\Manage\Views\Eventhours\Delete.cshtml" />
+    <Content Include="Areas\Manage\Views\Eventhours\Details.cshtml" />
+    <Content Include="Areas\Manage\Views\Eventhours\Edit.cshtml" />
+    <Content Include="Areas\Manage\Views\Eventhours\Index.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -381,6 +408,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Manage\Controllers\" />
+    <Folder Include="Areas\Manage\Models\" />
     <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>
@@ -436,6 +465,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201903281731172_EventHours.resx">
       <DependentUpon>201903281731172_EventHours.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903290757298_headdepartment.resx">
+      <DependentUpon>201903290757298_headdepartment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903290800172_eventhourrel.resx">
+      <DependentUpon>201903290800172_eventhourrel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903290818074_departmentsociallinks.resx">
+      <DependentUpon>201903290818074_departmentsociallinks.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
