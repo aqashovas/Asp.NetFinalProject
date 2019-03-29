@@ -1,4 +1,13 @@
-﻿ <!-- Page Title -->
+﻿@model Blog
+@{
+    ViewBag.Title = "Details";
+    List<Blog>
+    blogs = ViewBag.Blogs as List<Blog>;
+    
+
+
+}
+<!-- Page Title -->
 <div class="page-title">
     <div class="container">
         <div class="row">
@@ -8,7 +17,7 @@
 
             <div class="col-md-6 col-lg-5">
                 <ul>
-                    <li><a href="index.html">Home</a></li>
+                    <li><a href=@Url.Action("index","home")>Home</a></li>
                     <li>Blog Details</li>
                 </ul>
             </div>
@@ -24,29 +33,22 @@
                 <div class="blog-details">
                     <div class="article-img">
                         <img src="~/Public/assets/img/slider/1.jpg" alt="blog-details">
-                        <div class="date">20 <br> Jan</div>
+                        <div class="date">@Model.Date.ToShortDateString()</div>
                     </div>
 
                     <div class="article-content">
                         <ul class="category">
-                            <li><a href="#">IT</a></li>
-                            <li><a href="#">Mobile</a></li>
-                            <li><a href="#">Marketing</a></li>
-                            <li><a href="#">Design</a></li>
-                            <li><a href="#">Development</a></li>
+
+                            <li><a href="#">@Model.BlogCategory.Name</a></li>
+                            
                         </ul>
 
-                        <h3>How to Be a Work From Home Professional</h3>
+                        <h3>@Model.Title</h3>
 
-                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. In necessitatibus provident facere, reiciendis voluptate dolorem iste consectetur veniam aperiam suscipit ad ipsum et labore a repellendus debitis explicabo quisquam obcaecati....</p>
-
-                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Atque eum alias debitis suscipit, sint dignissimos minus quisquam recusandae nostrum quas eligendi odit, fugiat eius rem. Cumque, labore placeat! Velit, vitae. Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo, iste? Aut ipsam consequuntur non rem tenetur dolore consequatur ducimus a labore excepturi quae nisi, quisquam, maxime voluptates magnam aliquid. Cupiditate!</p>
-
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo, iste? Aut ipsam consequuntur non rem tenetur dolore consequatur ducimus a labore excepturi quae nisi, quisquam, maxime voluptates magnam aliquid. Cupiditate!</p>
-
-                        <blockquote class="blockquote">
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo, iste? Aut ipsam consequuntur non rem tenetur dolore consequatur ducimus a labore excepturi quae nisi, quisquam, maxime voluptates magnam aliquid. Cupiditate.</p>
-                        </blockquote>
+                       <p>@Model.Text</p>
+                       <blockquote class="blockquote">
+                           <p>@Model.SpecialText</p>
+                       </blockquote>
 
                         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Atque eum alias debitis suscipit, sint dignissimos minus quisquam recusandae nostrum quas eligendi odit, fugiat eius rem. Cumque, labore placeat! Velit, vitae. Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo, iste? Aut ipsam consequuntur non rem tenetur dolore consequatur ducimus a labore excepturi quae nisi, quisquam, maxime voluptates magnam aliquid. Cupiditate!</p>
 
@@ -62,15 +64,7 @@
                     </div>
                 </div>
 
-                <div class="post-controls-buttons">
-                    <div class="controls-left">
-                        <a href="#"><i class="icofont-double-left"></i> Prev Post</a>
-                    </div>
-
-                    <div class="controls-right">
-                        <a href="#">Next Post <i class="icofont-double-right"></i></a>
-                    </div>
-                </div>
+                
 
                 <div class="post-comments">
                     <h3>Comments</h3>
@@ -234,6 +228,7 @@
                         <h3 class="title">Popular Tags</h3>
 
                         <ul>
+                            
                             <li><a href="#">Business</a></li>
                             <li><a href="#">Finanace</a></li>
                             <li><a href="#">Solutions</a></li>

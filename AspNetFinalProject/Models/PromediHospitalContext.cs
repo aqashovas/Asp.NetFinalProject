@@ -52,20 +52,8 @@ namespace AspNetFinalProject.Models
 
         public DbSet<Eventhour> Eventhours { get; set; }
 
+        public DbSet<Slider> Sliders { get; set; }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        public System.Data.Entity.DbSet<AspNetFinalProject.Models.Admin> Admins { get; set; }
     }
 }

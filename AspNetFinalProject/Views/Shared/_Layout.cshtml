@@ -1,4 +1,4 @@
-﻿@{ 
+﻿@{
     Setting setting = ViewBag.Setting as Setting;
     List<Department> departments = ViewBag.Departments as List<Department>;
 
@@ -105,7 +105,7 @@
         <div class="navbar-container header-sticky">
             <nav class="navbar navbar-expand-lg navbar-light">
                 <div class="container">
-                    <a class="navbar-brand" href=@Url.Action("index","home")>
+                    <a class="navbar-brand" href="index.html">
                         <img src="~/Public/assets/img/logo.png" alt="Logo">
                     </a>
 
@@ -120,13 +120,13 @@
                                     Home
                                 </a>
                                 <div class="dropdown-menu">
-                                    <a class="dropdown-item active" href=@Url.Action("index","home")>Home Demo 1</a>
-                                    <a class="dropdown-item" href=@Url.Action("index","home")>Home Demo 2</a>
+                                    <a class="dropdown-item active" href="@Url.Action("index","home")">Home Demo 1</a>
+                                   
                                 </div>
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link" href=@Url.Action("index","about")>About</a>
+                                <a class="nav-link" href="@Url.Action("index","about")">About</a>
                             </li>
 
                             <li class="nav-item dropdown">
@@ -134,12 +134,12 @@
                                     Departments
                                 </a>
                                 <div class="dropdown-menu">
+
                                     @foreach (var item in departments.ToList())
                                     {
                                         <a class="dropdown-item" href=@Url.Action("details","department",new { slug=item.Slug })>@item.CategoryName</a>
 
                                     }
-                                   
                                 </div>
                             </li>
 
@@ -149,10 +149,9 @@
                                 </a>
                                 <div class="dropdown-menu">
                                    
-                                    <a class="dropdown-item" href=@Url.Action("index","doctors")>Our Doctors</a>
-                                    <a class="dropdown-item" href=@Url.Action("appointment")>Book Appoinment</a>
-                                   
-                                </div>
+                                    <a class="dropdown-item" href="@Url.Action("index","doctors")">Our Doctor</a>
+                                    <a class="dropdown-item" href="@Url.Action("index","appointment")">Book Appoinment</a>
+                                  </div>
                             </li>
 
                             <li class="nav-item dropdown">
@@ -160,12 +159,13 @@
                                     Blog
                                 </a>
                                 <div class="dropdown-menu">
-                                    <a class="dropdown-item" href=@Url.Action("index","blogs")>Blog</a>
+                                    <a class="dropdown-item" href="@Url.Action("index","blogs")">Blog</a>
+                                  
                                 </div>
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link" href=@Url.Action("contact")">Contact</a>
+                                <a class="nav-link" href=@Url.Action("index","contact")>Contact</a>
                             </li>
                         </ul>
 
@@ -181,24 +181,8 @@
         </div>
         <!-- End Navbar -->
     </header>
+    <!-- End Main header -->
     @RenderBody()
-    <section class="newsletter-section ptb-100">
-        <div class="container">
-            <div class="section-title white-title">
-                <h2>Join Our Newsletter</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do</p>
-            </div>
-
-            <div class="subscribe-from">
-                <form class="newsletter-form" data-toggle="validator">
-                    <input type="email" class="form-control" placeholder="Enter email" name="EMAIL" required autocomplete="off">
-                    <button type="submit" class="btn submit-btn"><i class="icofont-location-arrow"></i></button>
-                    <div id="validator-newsletter" class="form-result"></div>
-                </form>
-            </div>
-        </div>
-    </section>
-    <!-- End Our Newsletter -->
     <!-- Footer -->
     <footer class="pt-100 pb-50">
         <div class="container">
@@ -310,7 +294,7 @@
     <script src="~/Public/assets/js/promedi-map.js"></script>
     <!-- Main JS -->
     <script src="~/Public/assets/js/script.js"></script>
-    @RenderSection("script",false);
+    @RenderSection("script", false);
 </body>
 
 <!-- Mirrored from envytheme.com/tf-demo/promedi/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 10 Mar 2019 21:21:31 GMT -->

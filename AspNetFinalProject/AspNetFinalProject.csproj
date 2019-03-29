@@ -126,6 +126,20 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Manage\Controllers\AboutsController.cs" />
+    <Compile Include="Areas\Manage\Controllers\ActiveTimesController.cs" />
+    <Compile Include="Areas\Manage\Controllers\AuthorsController.cs" />
+    <Compile Include="Areas\Manage\Controllers\BlogCategoriesController.cs" />
+    <Compile Include="Areas\Manage\Controllers\BlogsController.cs" />
+    <Compile Include="Areas\Manage\Controllers\CountersController.cs" />
+    <Compile Include="Areas\Manage\Controllers\DepartmentCategoriesController.cs" />
+    <Compile Include="Areas\Manage\Controllers\DepartmentsController.cs" />
+    <Compile Include="Areas\Manage\Controllers\DoctorsController.cs" />
+    <Compile Include="Areas\Manage\Controllers\EventhoursController.cs" />
+    <Compile Include="Areas\Manage\Controllers\ExpertInsController.cs" />
+    <Compile Include="Areas\Manage\Controllers\LoginController.cs" />
+    <Compile Include="Areas\Manage\Controllers\PatientFeedbacksController.cs" />
+    <Compile Include="Areas\Manage\Controllers\PromedisController.cs" />
     <Compile Include="Areas\Manage\ManageAreaRegistration.cs" />
     <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\AppointmentController.cs" />
@@ -206,9 +220,46 @@
     <Compile Include="Migrations\201903290818074_departmentsociallinks.Designer.cs">
       <DependentUpon>201903290818074_departmentsociallinks.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201903291354051_Slider.cs" />
+    <Compile Include="Migrations\201903291354051_Slider.Designer.cs">
+      <DependentUpon>201903291354051_Slider.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201903291454087_dateBlog.cs" />
+    <Compile Include="Migrations\201903291454087_dateBlog.Designer.cs">
+      <DependentUpon>201903291454087_dateBlog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201903291518061_PostedbyBlog.cs" />
+    <Compile Include="Migrations\201903291518061_PostedbyBlog.Designer.cs">
+      <DependentUpon>201903291518061_PostedbyBlog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201903291658348_SpectextBlog.cs" />
+    <Compile Include="Migrations\201903291658348_SpectextBlog.Designer.cs">
+      <DependentUpon>201903291658348_SpectextBlog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201903291701417_MoretextBlog.cs" />
+    <Compile Include="Migrations\201903291701417_MoretextBlog.Designer.cs">
+      <DependentUpon>201903291701417_MoretextBlog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201903291829077_datetime2apppo.cs" />
+    <Compile Include="Migrations\201903291829077_datetime2apppo.Designer.cs">
+      <DependentUpon>201903291829077_datetime2apppo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201903291848459_videodel.cs" />
+    <Compile Include="Migrations\201903291848459_videodel.Designer.cs">
+      <DependentUpon>201903291848459_videodel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201903291947265_Admintable.cs" />
+    <Compile Include="Migrations\201903291947265_Admintable.Designer.cs">
+      <DependentUpon>201903291947265_Admintable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201903291957093_altertables.cs" />
+    <Compile Include="Migrations\201903291957093_altertables.Designer.cs">
+      <DependentUpon>201903291957093_altertables.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\About.cs" />
     <Compile Include="Models\ActiveTime.cs" />
+    <Compile Include="Models\Admin.cs" />
     <Compile Include="Models\Appointment.cs" />
     <Compile Include="Models\Author.cs" />
     <Compile Include="Models\Blog.cs" />
@@ -232,6 +283,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\VwAbout.cs" />
     <Compile Include="ViewModels\VwAppointment.cs" />
+    <Compile Include="ViewModels\VwBlog.cs" />
     <Compile Include="ViewModels\VwContact.cs" />
     <Compile Include="ViewModels\VwDoctor.cs" />
     <Compile Include="ViewModels\VwHome.cs" />
@@ -279,7 +331,16 @@
     <Content Include="Public\js\main.js" />
     <Content Include="Public\js\map.js" />
     <Content Include="Uploads\aboutus2.jpg" />
+    <Content Include="Uploads\aboutus3.jpg" />
+    <Content Include="Uploads\author1.jpg" />
     <Content Include="Uploads\bigdoctor1.jpg" />
+    <Content Include="Uploads\blog1.jpg" />
+    <Content Include="Uploads\blog2.jpg" />
+    <Content Include="Uploads\blog3.jpg" />
+    <Content Include="Uploads\blog4.jpg" />
+    <Content Include="Uploads\blog5.jpg" />
+    <Content Include="Uploads\blog6.jpg" />
+    <Content Include="Uploads\blog7.jpg" />
     <Content Include="Uploads\department1.jpg" />
     <Content Include="Uploads\doctor1.jpg" />
     <Content Include="Uploads\doctor2.jpg" />
@@ -348,11 +409,76 @@
     <Content Include="Areas\Manage\Views\web.config" />
     <Content Include="Areas\Manage\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Manage\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Manage\Views\Abouts\Create.cshtml" />
+    <Content Include="Areas\Manage\Views\Abouts\Delete.cshtml" />
+    <Content Include="Areas\Manage\Views\Abouts\Details.cshtml" />
+    <Content Include="Areas\Manage\Views\Abouts\Edit.cshtml" />
+    <Content Include="Areas\Manage\Views\Abouts\Index.cshtml" />
+    <Content Include="Areas\Manage\Views\ActiveTimes\Create.cshtml" />
+    <Content Include="Areas\Manage\Views\ActiveTimes\Delete.cshtml" />
+    <Content Include="Areas\Manage\Views\ActiveTimes\Details.cshtml" />
+    <Content Include="Areas\Manage\Views\ActiveTimes\Edit.cshtml" />
+    <Content Include="Areas\Manage\Views\ActiveTimes\Index.cshtml" />
+    <Content Include="Areas\Manage\Views\Login\Create.cshtml" />
+    <Content Include="Areas\Manage\Views\Login\Delete.cshtml" />
+    <Content Include="Areas\Manage\Views\Login\Details.cshtml" />
+    <Content Include="Areas\Manage\Views\Login\Edit.cshtml" />
+    <Content Include="Areas\Manage\Views\Login\Index.cshtml" />
+    <Content Include="Areas\Manage\Views\Blogs\Create.cshtml" />
+    <Content Include="Areas\Manage\Views\Blogs\Delete.cshtml" />
+    <Content Include="Areas\Manage\Views\Blogs\Details.cshtml" />
+    <Content Include="Areas\Manage\Views\Blogs\Edit.cshtml" />
+    <Content Include="Areas\Manage\Views\Blogs\Index.cshtml" />
+    <Content Include="Areas\Manage\Views\Authors\Create.cshtml" />
+    <Content Include="Areas\Manage\Views\Authors\Delete.cshtml" />
+    <Content Include="Areas\Manage\Views\Authors\Details.cshtml" />
+    <Content Include="Areas\Manage\Views\Authors\Edit.cshtml" />
+    <Content Include="Areas\Manage\Views\Authors\Index.cshtml" />
+    <Content Include="Areas\Manage\Views\BlogCategories\Create.cshtml" />
+    <Content Include="Areas\Manage\Views\BlogCategories\Delete.cshtml" />
+    <Content Include="Areas\Manage\Views\BlogCategories\Details.cshtml" />
+    <Content Include="Areas\Manage\Views\BlogCategories\Edit.cshtml" />
+    <Content Include="Areas\Manage\Views\BlogCategories\Index.cshtml" />
+    <Content Include="Areas\Manage\Views\Counters\Create.cshtml" />
+    <Content Include="Areas\Manage\Views\Counters\Delete.cshtml" />
+    <Content Include="Areas\Manage\Views\Counters\Details.cshtml" />
+    <Content Include="Areas\Manage\Views\Counters\Edit.cshtml" />
+    <Content Include="Areas\Manage\Views\Counters\Index.cshtml" />
+    <Content Include="Areas\Manage\Views\Departments\Create.cshtml" />
+    <Content Include="Areas\Manage\Views\Departments\Delete.cshtml" />
+    <Content Include="Areas\Manage\Views\Departments\Details.cshtml" />
+    <Content Include="Areas\Manage\Views\Departments\Edit.cshtml" />
+    <Content Include="Areas\Manage\Views\Departments\Index.cshtml" />
+    <Content Include="Areas\Manage\Views\DepartmentCategories\Create.cshtml" />
+    <Content Include="Areas\Manage\Views\DepartmentCategories\Delete.cshtml" />
+    <Content Include="Areas\Manage\Views\DepartmentCategories\Details.cshtml" />
+    <Content Include="Areas\Manage\Views\DepartmentCategories\Edit.cshtml" />
+    <Content Include="Areas\Manage\Views\DepartmentCategories\Index.cshtml" />
+    <Content Include="Areas\Manage\Views\Doctors\Create.cshtml" />
+    <Content Include="Areas\Manage\Views\Doctors\Delete.cshtml" />
+    <Content Include="Areas\Manage\Views\Doctors\Details.cshtml" />
+    <Content Include="Areas\Manage\Views\Doctors\Edit.cshtml" />
+    <Content Include="Areas\Manage\Views\Doctors\Index.cshtml" />
     <Content Include="Areas\Manage\Views\Eventhours\Create.cshtml" />
     <Content Include="Areas\Manage\Views\Eventhours\Delete.cshtml" />
     <Content Include="Areas\Manage\Views\Eventhours\Details.cshtml" />
     <Content Include="Areas\Manage\Views\Eventhours\Edit.cshtml" />
     <Content Include="Areas\Manage\Views\Eventhours\Index.cshtml" />
+    <Content Include="Areas\Manage\Views\ExpertIns\Create.cshtml" />
+    <Content Include="Areas\Manage\Views\ExpertIns\Delete.cshtml" />
+    <Content Include="Areas\Manage\Views\ExpertIns\Details.cshtml" />
+    <Content Include="Areas\Manage\Views\ExpertIns\Edit.cshtml" />
+    <Content Include="Areas\Manage\Views\ExpertIns\Index.cshtml" />
+    <Content Include="Areas\Manage\Views\PatientFeedbacks\Create.cshtml" />
+    <Content Include="Areas\Manage\Views\PatientFeedbacks\Delete.cshtml" />
+    <Content Include="Areas\Manage\Views\PatientFeedbacks\Details.cshtml" />
+    <Content Include="Areas\Manage\Views\PatientFeedbacks\Edit.cshtml" />
+    <Content Include="Areas\Manage\Views\PatientFeedbacks\Index.cshtml" />
+    <Content Include="Areas\Manage\Views\Promedis\Create.cshtml" />
+    <Content Include="Areas\Manage\Views\Promedis\Delete.cshtml" />
+    <Content Include="Areas\Manage\Views\Promedis\Details.cshtml" />
+    <Content Include="Areas\Manage\Views\Promedis\Edit.cshtml" />
+    <Content Include="Areas\Manage\Views\Promedis\Index.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -372,6 +498,8 @@
     <Content Include="Scripts\umd\popper-utils.min.js" />
     <Content Include="Scripts\umd\popper.js" />
     <Content Include="Scripts\umd\popper.min.js" />
+    <Content Include="Uploads\promediphoto1.jpg" />
+    <Content Include="Uploads\slider1.jpg" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -408,8 +536,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Manage\Controllers\" />
     <Folder Include="Areas\Manage\Models\" />
+    <Folder Include="Areas\Manage\Public\" />
     <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>
@@ -474,6 +602,33 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201903290818074_departmentsociallinks.resx">
       <DependentUpon>201903290818074_departmentsociallinks.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903291354051_Slider.resx">
+      <DependentUpon>201903291354051_Slider.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903291454087_dateBlog.resx">
+      <DependentUpon>201903291454087_dateBlog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903291518061_PostedbyBlog.resx">
+      <DependentUpon>201903291518061_PostedbyBlog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903291658348_SpectextBlog.resx">
+      <DependentUpon>201903291658348_SpectextBlog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903291701417_MoretextBlog.resx">
+      <DependentUpon>201903291701417_MoretextBlog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903291829077_datetime2apppo.resx">
+      <DependentUpon>201903291829077_datetime2apppo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903291848459_videodel.resx">
+      <DependentUpon>201903291848459_videodel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903291947265_Admintable.resx">
+      <DependentUpon>201903291947265_Admintable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903291957093_altertables.resx">
+      <DependentUpon>201903291957093_altertables.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

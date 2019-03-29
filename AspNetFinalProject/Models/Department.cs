@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -9,13 +10,18 @@ namespace AspNetFinalProject.Models
     {
         public int Id { get; set; }
 
+        [Required]
         public string Title { get; set; }
 
+        [Required]
         public string Text { get; set; }
 
+        [Required]
         public string Photo { get; set; }
 
+        [Required]
         public string Slug { get; set; }
+
 
         public string Address { get; set; }
 
@@ -23,10 +29,13 @@ namespace AspNetFinalProject.Models
 
         public string Phone { get; set; }
 
+        [Required]
         public string CategoryName { get; set; }
 
+        [Required]
         public string HeadofDepartmentposition { get; set; }
 
+        [Required]
         public string HeadofDepartmentname { get; set; }
 
         public string Facebook { get; set; }

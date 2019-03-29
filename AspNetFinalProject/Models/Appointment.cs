@@ -16,7 +16,7 @@ namespace AspNetFinalProject.Models
 
         public string Phone { get; set; }
 
-        [Column("date")]
+        [Column(TypeName = "datetime2")]
         public DateTime Date { get; set; }
 
         public string Message { get; set; }

@@ -24,12 +24,16 @@ namespace AspNetFinalProject.Models
 
         public string GooglePlus { get; set; }
 
+        [Required]
         public string Mail { get; set; }
 
+        [Required]
         public string Phone { get; set; }
 
+        [Required]
         public string Lat { get; set; }
 
+        [Required]
         public string Lng { get; set; }
 
         [Required]
@@ -43,11 +47,11 @@ namespace AspNetFinalProject.Models
 
         public string ContactPhone2 { get; set; }
 
-        public string VideoTitle { get; set; }
+        //public string VideoTitle { get; set; }
 
-        public string VideoText { get; set; }
+        //public string VideoText { get; set; }
 
-        public string VideoUrl { get; set; }
+        //public string VideoUrl { get; set; }
 
 
 

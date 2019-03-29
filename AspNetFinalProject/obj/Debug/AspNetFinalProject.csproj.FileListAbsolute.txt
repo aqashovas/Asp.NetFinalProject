@@ -192,3 +192,12 @@ C:\Users\Sabina123\Source\Repos\aqashovas\Asp.NetFinalProject\AspNetFinalProject
 C:\Users\Sabina123\Source\Repos\aqashovas\Asp.NetFinalProject\AspNetFinalProject\obj\Debug\AspNetFinalProject.Migrations.headdepartment.resources
 C:\Users\Sabina123\Source\Repos\aqashovas\Asp.NetFinalProject\AspNetFinalProject\obj\Debug\AspNetFinalProject.Migrations.eventhourrel.resources
 C:\Users\Sabina123\Source\Repos\aqashovas\Asp.NetFinalProject\AspNetFinalProject\obj\Debug\AspNetFinalProject.Migrations.departmentsociallinks.resources
+C:\Users\Sabina123\Source\Repos\aqashovas\Asp.NetFinalProject\AspNetFinalProject\obj\Debug\AspNetFinalProject.Migrations.Slider.resources
+C:\Users\Sabina123\Source\Repos\aqashovas\Asp.NetFinalProject\AspNetFinalProject\obj\Debug\AspNetFinalProject.Migrations.dateBlog.resources
+C:\Users\Sabina123\Source\Repos\aqashovas\Asp.NetFinalProject\AspNetFinalProject\obj\Debug\AspNetFinalProject.Migrations.PostedbyBlog.resources
+C:\Users\Sabina123\Source\Repos\aqashovas\Asp.NetFinalProject\AspNetFinalProject\obj\Debug\AspNetFinalProject.Migrations.SpectextBlog.resources
+C:\Users\Sabina123\Source\Repos\aqashovas\Asp.NetFinalProject\AspNetFinalProject\obj\Debug\AspNetFinalProject.Migrations.MoretextBlog.resources
+C:\Users\Sabina123\Source\Repos\aqashovas\Asp.NetFinalProject\AspNetFinalProject\obj\Debug\AspNetFinalProject.Migrations.datetime2apppo.resources
+C:\Users\Sabina123\Source\Repos\aqashovas\Asp.NetFinalProject\AspNetFinalProject\obj\Debug\AspNetFinalProject.Migrations.videodel.resources
+C:\Users\Sabina123\Source\Repos\aqashovas\Asp.NetFinalProject\AspNetFinalProject\obj\Debug\AspNetFinalProject.Migrations.Admintable.resources
+C:\Users\Sabina123\Source\Repos\aqashovas\Asp.NetFinalProject\AspNetFinalProject\obj\Debug\AspNetFinalProject.Migrations.altertables.resources

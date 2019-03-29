@@ -11,22 +11,32 @@ namespace AspNetFinalProject.Models
     {
         public int Id { get; set; }
 
+        [Required]
         public string Photo { get; set; }
 
         public int AuthorId { get; set; }
 
+        [Required]
         public string Text { get; set; }
 
+        [Required]
         public string Title { get; set; }
 
-        public string MoreUrl { get; set; }
-
-        [Column("date")]
+        [Required]
+        [Column(TypeName ="date")]
         public DateTime Date { get; set; }
 
         public int CategoryId { get; set; }
 
+        [Required]
         public string Slug { get; set; }
+
+        public string Postedby { get; set; }
+
+        public string SpecialText { get; set; }
+
+        [Required]
+        public string Moretext { get; set; }
 
         public BlogCategory BlogCategory { get; set; }
 

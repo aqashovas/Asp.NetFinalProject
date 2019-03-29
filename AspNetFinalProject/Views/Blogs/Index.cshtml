@@ -1,4 +1,7 @@
-﻿  <!-- Page Title -->
+﻿@{ 
+    @model VwBlog
+} 
+ <!-- Page Title -->
 <div class="page-title">
     <div class="container">
         <div class="row">
@@ -8,7 +11,7 @@
 
             <div class="col-md-6 col-lg-5">
                 <ul>
-                    <li><a href="index.html">Home</a></li>
+                    <li><a href=@Url.Action("index","home")>Home</a></li>
                     <li>Blog</li>
                 </ul>
             </div>
@@ -22,232 +25,60 @@
         <div class="row">
             <div class="col-lg-8 col-md-12">
                 <div class="row">
-                    <div class="col-lg-6 col-md-6">
-                        <div class="single-card actical-card">
-                            <div class="thumb-img">
-                                <a href="#">
-                                    <img src="~/Public/assets/img/news/1.jpg" alt="News Image" />
-                                </a>
-                            </div>
+                    @foreach (var item in Model.Blogs)
+                    {
+                        <div class="col-lg-6 col-md-6">
+                            <div class="single-card actical-card">
+                                <div class="thumb-img">
+                                    <a href="#">
+                                        <img src="~/Uploads/@item.Photo" alt="News Image" />
+                                    </a>
+                                </div>
 
-                            <div class="caption-text">
-                                <h3><a href="#">Baby Talk: Is Surrogacy An Option?</a></h3>
+                                <div class="caption-text">
+                                    <h3><a href="@Url.Action("details","blogs",new { slug= item.Slug})">@item.Title</a></h3>
 
-                                <ul class="meta-tag">
-                                    <li class="author">
-                                        <img src="~/Public/assets/img/patient/1.jpg" alt="">
-                                        <a href="#">Dr. Jacson</a>
-                                    </li>
-                                    <li>5 Jan, 2019</li>
-                                    <li><i class="icofont-speech-comments"></i> 30</li>
-                                </ul>
+                                    <ul class="meta-tag">
+                                        <li class="author">
+                                            <img src="~/Uploads/@item.Author.Photo" alt="">
+                                            <a href="@Url.Action("details","blog",new {slug=item.Slug })">@item.Author.Name</a>
+                                        </li>
+                                        <li>@item.Date.ToShortDateString()</li>
+                                        @*<li><i class="icofont-speech-comments"></i> 30</li>*@
+                                    </ul>
 
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore</p>
-
-                                <a href="#" class="read-more">Read More <i class="icofont-swoosh-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-6 col-md-6">
-                        <div class="single-card actical-card">
-                            <div class="thumb-img">
-                                <a href="#">
-                                    <img src="~/Public/assets/img/news/2.jpg" alt="News Image" />
-                                </a>
-                            </div>
-
-                            <div class="caption-text">
-                                <h3><a href="#">4 Simple Tips To Dental Patient Marketing</a></h3>
-
-                                <ul class="meta-tag">
-                                    <li class="author">
-                                        <img src="~/Public/assets/img/patient/1.jpg" alt="">
-                                        <a href="#">Dr. Inline</a>
-                                    </li>
-                                    <li>8 Jan, 2019</li>
-                                    <li><i class="icofont-speech-comments"></i> 30</li>
-                                </ul>
-
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore</p>
-
-                                <a href="#" class="read-more">Read More <i class="icofont-swoosh-right"></i></a>
+                                        <p>@item.Text</p>
+                                    <a href=@Url.Action("details","blog",new {slug=item.Slug }) class="read-more">Read More <i class="icofont-swoosh-right"></i></a>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    }
 
-                    <div class="col-lg-6 col-md-6">
-                        <div class="single-card actical-card">
-                            <div class="thumb-img">
-                                <a href="#">
-                                    <img src="~/Public/assets/img/news/3.jpg" alt="News Image" />
-                                </a>
-                            </div>
 
-                            <div class="caption-text">
-                                <h3><a href="#">How to Donate Medical Supplies</a></h3>
-
-                                <ul class="meta-tag">
-                                    <li class="author">
-                                        <img src="~/Public/assets/img/patient/1.jpg" alt="">
-                                        <a href="#">Dr. Jach</a>
-                                    </li>
-                                    <li>9 Jan, 2019</li>
-                                    <li><i class="icofont-speech-comments"></i> 30</li>
-                                </ul>
-
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore</p>
-
-                                <a href="#" class="read-more">Read More <i class="icofont-swoosh-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-6 col-md-6">
-                        <div class="single-card actical-card">
-                            <div class="thumb-img">
-                                <a href="#">
-                                    <img src="~/Public/assets/img/news/4.jpg" alt="News Image" />
-                                </a>
-                            </div>
-
-                            <div class="caption-text">
-                                <h3><a href="#">Simple First Aid Tips For An Injured Ankle</a></h3>
-
-                                <ul class="meta-tag">
-                                    <li class="author">
-                                        <img src="~/Public/assets/img/patient/1.jpg" alt="">
-                                        <a href="#">Dr. Jia</a>
-                                    </li>
-                                    <li>25 Jan, 2019</li>
-                                    <li><i class="icofont-speech-comments"></i> 30</li>
-                                </ul>
-
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore</p>
-
-                                <a href="#" class="read-more">Read More <i class="icofont-swoosh-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-6 col-md-6">
-                        <div class="single-card actical-card">
-                            <div class="thumb-img">
-                                <a href="#">
-                                    <img src="~/Public/assets/img/news/5.jpg" alt="News Image" />
-                                </a>
-                            </div>
-
-                            <div class="caption-text">
-                                <h3><a href="#">Tips for Moms to Detect Medicare Scams</a></h3>
-
-                                <ul class="meta-tag">
-                                    <li class="author">
-                                        <img src="~/Public/assets/img/patient/1.jpg" alt="">
-                                        <a href="#">Dr. Smith</a>
-                                    </li>
-                                    <li>29 Jan, 2019</li>
-                                    <li><i class="icofont-speech-comments"></i> 30</li>
-                                </ul>
-
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore</p>
-
-                                <a href="#" class="read-more">Read More <i class="icofont-swoosh-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-6 col-md-6">
-                        <div class="single-card actical-card">
-                            <div class="thumb-img">
-                                <a href="#">
-                                    <img src="~/Public/assets/img/news/1.jpg" alt="News Image" />
-                                </a>
-                            </div>
-
-                            <div class="caption-text">
-                                <h3><a href="#">Baby Talk: Is Surrogacy An Option?</a></h3>
-
-                                <ul class="meta-tag">
-                                    <li class="author">
-                                        <img src="~/Public/assets/img/patient/1.jpg" alt="">
-                                        <a href="#">Dr. Jacson</a>
-                                    </li>
-                                    <li>5 Jan, 2019</li>
-                                    <li><i class="icofont-speech-comments"></i> 30</li>
-                                </ul>
-
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore</p>
-
-                                <a href="#" class="read-more">Read More <i class="icofont-swoosh-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-6 col-md-6">
-                        <div class="single-card actical-card">
-                            <div class="thumb-img">
-                                <a href="#">
-                                    <img src="~/Public/assets/img/news/2.jpg" alt="News Image" />
-                                </a>
-                            </div>
-
-                            <div class="caption-text">
-                                <h3><a href="#">4 Simple Tips To Dental Patient Marketing</a></h3>
-
-                                <ul class="meta-tag">
-                                    <li class="author">
-                                        <img src="~/Public/assets/img/patient/1.jpg" alt="">
-                                        <a href="#">Dr. Inline</a>
-                                    </li>
-                                    <li>8 Jan, 2019</li>
-                                    <li><i class="icofont-speech-comments"></i> 30</li>
-                                </ul>
-
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore</p>
-
-                                <a href="#" class="read-more">Read More <i class="icofont-swoosh-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-6 col-md-6">
-                        <div class="single-card actical-card">
-                            <div class="thumb-img">
-                                <a href="#">
-                                    <img src="~/Public/assets/img/news/3.jpg" alt="News Image" />
-                                </a>
-                            </div>
-
-                            <div class="caption-text">
-                                <h3><a href="#">How to Donate Medical Supplies</a></h3>
-
-                                <ul class="meta-tag">
-                                    <li class="author">
-                                        <img src="~/Public/assets/img/patient/1.jpg" alt="">
-                                        <a href="#">Dr. Jach</a>
-                                    </li>
-                                    <li>9 Jan, 2019</li>
-                                    <li><i class="icofont-speech-comments"></i> 30</li>
-                                </ul>
-
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore</p>
-
-                                <a href="#" class="read-more">Read More <i class="icofont-swoosh-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
+                    
 
                     <div class="col-lg-12 col-md-12">
                         <div class="pagination-area">
                             <nav aria-label="Page navigation">
                                 <ul class="pagination justify-content-center">
-                                    <li class="page-item"><a class="page-link" href="#"><i class="icofont-hand-drawn-left"></i></a></li>
-                                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">4</a></li>
-                                    <li class="page-item"><a class="page-link" href="#"><i class="icofont-hand-drawn-right"></i></a></li>
+                                    @if (Model.Page != 1)
+                                    {
+                                        <li class="page-item"><a class="page-link" href="@Url.Action("index","blogs",new { page=Model.Page-1 })"><i class="icofont-hand-drawn-left"></i></a></li>
+
+                                    }
+                                    @for (int i = 1; i <= Model.TotalPage; i++)
+                                    {
+                                        <li class="page-item @(Model.Page==i?"active":"")">
+                                            <a class="page-link" href="@Url.Action("index","blogs",new { page=i })">@i</a>
+                                        </li>
+                                    }
+                                    @if (Model.Page != Model.TotalPage)
+                                    {
+                                        <li class="page-item"><a class="page-link" href="@Url.Action("index","blogs",new { page=Model.Page+1 })"><i class="icofont-hand-drawn-right"></i></a></li>
+
+                                    }
+                                   
+
                                 </ul>
                             </nav>
                         </div>
@@ -266,71 +97,35 @@
 
                     <div class="widget latest-post">
                         <h4 class="title">Latest Post</h4>
+                        @foreach (var item in Model.LatestBlogs.ToList())
+                        {
+                            <div class="single-post">
+                                <div class="img">
+                                    <a href=@Url.Action("details","blogs",new {slug=item.Slug })><img src="~/Uploads/@item.Photo" alt="latest-post"></a>
+                                </div>
 
-                        <div class="single-post">
-                            <div class="img">
-                                <a href="#"><img src="~/Public/assets/img/news/latest-post1.jpg" alt="latest-post"></a>
+                                <div class="content">
+                                    <ul>
+                                        <li>Posted by <a href="#">@item.Postedby</a></li>
+                                    </ul>
+                                    <h4><a href=@Url.Action("details","blogs",new {slug=item.Slug })>@item.Title</a></h4>
+                                </div>
                             </div>
+                        }
 
-                            <div class="content">
-                                <ul>
-                                    <li>Posted by <a href="#">Admin</a></li>
-                                </ul>
-                                <h4><a href="#">Consulting Fee Structures: 5 Models Ranked from Worst to Best</a></h4>
-                            </div>
-                        </div>
 
-                        <div class="single-post">
-                            <div class="img">
-                                <a href="#"><img src="~/Public/assets/img/news/latest-post2.jpg" alt="latest-post"></a>
-                            </div>
 
-                            <div class="content">
-                                <ul>
-                                    <li>Posted by <a href="#">Admin</a></li>
-                                </ul>
-                                <h4><a href="#">5 Secrets to a Successful Business Coaching Relationship</a></h4>
-                            </div>
-                        </div>
-
-                        <div class="single-post">
-                            <div class="img">
-                                <a href="#"><img src="~/Public/assets/img/news/latest-post3.jpg" alt="latest-post"></a>
-                            </div>
-
-                            <div class="content">
-                                <ul>
-                                    <li>Posted by <a href="#">Admin</a></li>
-                                </ul>
-                                <h4><a href="#">How to Put Your Value Proposition to Work</a></h4>
-                            </div>
-                        </div>
-
-                        <div class="single-post mb-0">
-                            <div class="img">
-                                <a href="#"><img src="~/Public/assets/img/news/latest-post1.jpg" alt="latest-post"></a>
-                            </div>
-
-                            <div class="content">
-                                <ul>
-                                    <li>Posted by <a href="#">Admin</a></li>
-                                </ul>
-                                <h4><a href="#">Consulting Sales for the Elite Consultant</a></h4>
-                            </div>
-                        </div>
                     </div>
 
                     <div class="widget categories">
                         <h3 class="title">Categories</h3>
 
-                        <ul>
-                            <li><a href="#"><i class="icofont-double-right"></i> Business Consulting</a></li>
-                            <li><a href="#"><i class="icofont-double-right"></i> Financial Advice</a></li>
-                            <li><a href="#"><i class="icofont-double-right"></i> Market Research</a></li>
-                            <li><a href="#"><i class="icofont-double-right"></i> Business Solutions</a></li>
-                            <li><a href="#"><i class="icofont-double-right"></i> Professional Planning</a></li>
-                            <li><a href="#"><i class="icofont-double-right"></i> Finanace Services</a></li>
-                            <li><a href="#"><i class="icofont-double-right"></i> Business Planning</a></li>
+                        <ul data-selected-id="@ViewBag.CategoryId" class="categories">
+                            @foreach (var item in Model.BlogCategories)
+                            {
+                                <li><a href="@Url.Action("index","blogs",new { category = item.Id})">@item.Name</a></li>
+                            }
+                            
                         </ul>
                     </div>
 
@@ -338,15 +133,12 @@
                         <h3 class="title">Popular Tags</h3>
 
                         <ul>
-                            <li><a href="#">Business</a></li>
-                            <li><a href="#">Finanace</a></li>
-                            <li><a href="#">Solutions</a></li>
-                            <li><a href="#">Market Research</a></li>
-                            <li><a href="#">Planning</a></li>
-                            <li><a href="#">Advice</a></li>
-                            <li><a href="#">Financial</a></li>
-                            <li><a href="#">Services</a></li>
-                            <li><a href="#">Professional</a></li>
+                            @foreach (var item in Model.Tags.ToList())
+                            {
+                                <li><a href="#">@item.Name</a></li>
+                            }
+
+                           
                         </ul>
                     </div>
 

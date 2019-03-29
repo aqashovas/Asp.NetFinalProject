@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -7,14 +8,18 @@ namespace AspNetFinalProject.Models
 {
     public class Doctor
     {
-        public int Id { get; set; }        
+        public int Id { get; set; }
 
+        [Required]
         public string Text { get; set; }
 
+        [Required]
         public string Moretext { get; set; }
 
+        [Required]
         public string FullName { get; set; }
 
+        [Required]
         public string Photo { get; set; }
 
         public string BigPhoto { get; set; }
@@ -24,9 +29,11 @@ namespace AspNetFinalProject.Models
         public string Phone { get; set; }
 
         public string Mail { get; set; }
-      
+
+        [Required]
         public string Degree { get; set; }
 
+        [Required]
         public string Slug { get; set; }
 
         public string Facebook { get; set; }

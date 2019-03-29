@@ -1,29 +1,33 @@
-﻿<div class="hero-slider owl-carousel owl-theme">
-    <div class="hs-item hs-item-bg1">
+﻿@{ 
+    @model VwHome
+}
+<!--Hero Slider-->
+<div class="hero-slider owl-carousel owl-theme">
+    <div class="hs-item" style="background-image : url(~/Uploads/@Model.Slider3.Photo)">
         <div class="d-table">
             <div class="d-tablecell">
                 <div class="hero-text text-center">
-                    <h1>We Always Care Your <br> Health</h1>
+                    <h1>@Model.Slider3.Text</h1>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="hs-item hs-item-bg2">
+    <div class="hs-item" style="background-image : url(~/Uploads/@Model.Slider1.Photo)">
         <div class="d-table">
             <div class="d-tablecell">
                 <div class="hero-text text-center">
-                    <h1>Best Care & Better <br> Doctor</h1>
+                    <h1>@Model.Slider1.Text</h1>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="hs-item hs-item-bg3">
+    <div class="hs-item " style="background-image : url(~/Uploads/@Model.Slider2.Photo)">
         <div class="d-table">
             <div class="d-tablecell">
                 <div class="hero-text text-center">
-                    <h1>We Always Care Your <br> Health</h1>
+                    <h1>@Model.Slider2.Text</h1>
                 </div>
             </div>
         </div>
@@ -34,44 +38,26 @@
 <div class="services-area services-box">
     <div class="container">
         <div class="row">
-            <div class="col-md-6 col-lg-4">
-                <div class="single-card">
-                    <div class="thumb-img">
-                        <img src="~/Public/assets/img/services/1.jpg" alt="Service Image" />
-                    </div>
+            @foreach (var item in Model.Promedis.ToList())
+            {
+                <div class="col-md-6 col-lg-4">
+                    <div class="single-card">
+                        <div class="thumb-img">
+                            <img src="~/Uploads/@item.Photo" alt="Service Image" />
+                        </div>
 
-                    <div class="caption-text text-center">
-                        <h3>Emergency Care</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore</p>
+                        <div class="caption-text text-center">
+                            <h3>@item.Name</h3>
+                            <p>@item.Text</p>                       
+                        </div>
                     </div>
                 </div>
-            </div>
+            }
 
-            <div class="col-md-6 col-lg-4">
-                <div class="single-card">
-                    <div class="thumb-img">
-                        <img src="~/Public/assets/img/services/2.jpg" alt="Service Image" />
-                    </div>
 
-                    <div class="caption-text text-center">
-                        <h3>Qualified Doctors</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore</p>
-                    </div>
-                </div>
-            </div>
+            
 
-            <div class="col-md-6 col-lg-4 offset-md-3 offset-lg-0">
-                <div class="single-card">
-                    <div class="thumb-img">
-                        <img src="~/Public/assets/img/services/3.jpg" alt="Service Image" />
-                    </div>
-
-                    <div class="caption-text text-center">
-                        <h3>24/7 Hours Service</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore</p>
-                    </div>
-                </div>
-            </div>
+            
         </div>
     </div>
 </div>
@@ -82,21 +68,17 @@
         <div class="row justify-content-center align-items-center">
             <div class="col-md-12 col-lg-6">
                 <div class="about-us-img">
-                    <img src="~/Public/assets/img/about-us.jpg" alt="About Us Image">
+                    <img src="~/Uploads/@Model.About.Photo" alt="About Us Image">
                 </div>
             </div>
 
             <div class="col-md-12 col-lg-6">
                 <div class="about-us-text">
-                    <h2>50 Years of Experience in Medical</h2>
+                    <h2>@Model.About.Title</h2>
 
-                    <p>We are ready to build your dream future Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum, beatae.</p>
+                    <p>@Model.About.Text</p>
 
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-
-                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae abveritatis quasi architecto beatae vitae dicta sunt explicabo.</p>
-
-                    <a href="#" class="default-btn">About Us</a>
+                    <a href=@Url.Action("index","about") class="default-btn">About Us</a>
                 </div>
             </div>
         </div>
@@ -104,23 +86,9 @@
 </section>
 <!-- End about section -->
 <!-- Call To Action -->
-<section class="call-to-action">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12 col-lg-9">
-                <div class="call-to-action-text">
-                    <i class="icofont-first-aid"></i>
-                    <h3>Health Care Center</h3>
-                    <p>if you have any Emerangcy by health problem contact this <span>No. 035 687 9514</span> or contact form</p>
-                </div>
-            </div>
-
-            <div class="col-md-12 col-lg-3">
-                <a href="#" class="default-btn">Contact Us</a>
-            </div>
-        </div>
-    </div>
-</section>
+@{
+    Html.RenderPartial("~/Views/_CallAction.cshtml");
+}
 <!-- End Call To Action -->
 <!-- Departments section -->
 <section class="department-section pt-100 pb-50 gray-bg">
@@ -131,74 +99,30 @@
         </div>
 
         <div class="row">
-            <div class="col-md-4 col-lg-3">
-                <div class="single-department">
-                    <i class="icofont-heart-beat"></i>
-                    <h3>Cardiology</h3>
-                    <p>Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas.</p>
+            @foreach (var item in Model.DepartmentCategories.ToList())
+            {
+                <div class="col-md-4 col-lg-3">
+                    <div class="single-department">
+                        <i class="@item.Logo"></i>
+                        <h3>@item.Name</h3>
+                        <p>@item.Text</p>
+                    </div>
                 </div>
-            </div>
-            <div class="col-md-4 col-lg-3">
-                <div class="single-department">
-                    <i class="icofont-brain"></i>
-                    <h3>Neurology</h3>
-                    <p>Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas.</p>
-                </div>
-            </div>
-            <div class="col-md-4 col-lg-3">
-                <div class="single-department">
-                    <i class="icofont-crutch"></i>
-                    <h3>Orthopedics</h3>
-                    <p>Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas.</p>
-                </div>
-            </div>
-            <div class="col-md-4 col-lg-3">
-                <div class="single-department">
-                    <i class="icofont-xray"></i>
-                    <h3>Radiology</h3>
-                    <p>Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas.</p>
-                </div>
-            </div>
-            <div class="col-md-4 col-lg-3">
-                <div class="single-department">
-                    <i class="icofont-surgeon"></i>
-                    <h3>Surgery</h3>
-                    <p>Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas.</p>
-                </div>
-            </div>
-            <div class="col-md-4 col-lg-3">
-                <div class="single-department">
-                    <i class="icofont-laboratory"></i>
-                    <h3>Urology</h3>
-                    <p>Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas.</p>
-                </div>
-            </div>
-            <div class="col-md-4 col-lg-3">
-                <div class="single-department">
-                    <i class="icofont-autism"></i>
-                    <h3>Psychosocial</h3>
-                    <p>Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas.</p>
-                </div>
-            </div>
-            <div class="col-md-4 col-lg-3">
-                <div class="single-department">
-                    <i class="icofont-tooth"></i>
-                    <h3>Dental</h3>
-                    <p>Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas.</p>
-                </div>
-            </div>
+            }
+            
         </div>
     </div>
 </section>
 <!-- End Departments section -->
 <!-- Video And Counter Section -->
 @{
-    Html.RenderPartial("~/Views/_VideoAndCounter.cshtml");
+    Html.RenderPartial("~/Views/_VideoAndCounter.cshtml",Model.Counters);
 }
 <!-- End Vide and counter section -->
 <!-- Expert Doctors -->
+
 @{
-    Html.RenderPartial("~/Views/_ExpertDoctors.cshtml");
+    Html.RenderPartial("~/Views/_ExpertDoctors.cshtml", Model.Doctors);
 }<!-- Edn Expert Doctors -->
 <!-- Appointment Area -->
 <div class="appointment-area">
@@ -206,13 +130,13 @@
         <div class="row">
             <div class="col-md-12 col-lg-5 p-0">
                 <div class="contant-number">
-                    <h3><i class="icofont-phone"></i> 1-604-555-5555</h3>
+                    <h3><i class="icofont-phone"></i>@Model.Setting.Phone</h3>
                 </div>
             </div>
             <div class="col-md-12 col-lg-7 p-0">
                 <div class="appointment-form">
                     <h2 class="title">Make an Appointment</h2>
-                    <form>
+                    <form action=@Url.Action("book","appointment") method="post">
                         <div class="row">
                             <div class="col-md-6 col-lg-6 pr-10">
                                 <div class="form-group">
@@ -235,13 +159,10 @@
                             <div class="col-md-6 col-lg-6 pl-10">
                                 <div class="form-group">
                                     <select class="form-control">
-                                        <option>Department</option>
-                                        <option>Cardiology</option>
-                                        <option>Neurology</option>
-                                        <option>Orthopedics</option>
-                                        <option>Radiology</option>
-                                        <option>Surgery</option>
-                                        <option>Urology</option>
+                                        @foreach (var item in Model.DepartmentCategories.ToList())
+                                        {
+                                            <option>@item.Name</option>
+                                        }
                                     </select>
                                 </div>
                             </div>
@@ -249,11 +170,12 @@
                             <div class="col-md-6 col-lg-6 pr-10">
                                 <div class="form-group">
                                     <select class="form-control">
-                                        <option>Doctor</option>
-                                        <option>Dr. Anym Jackson</option>
-                                        <option>Dr. Mark Jacobson</option>
-                                        <option>Dr. Alex Davidson</option>
-                                        <option>Dr. Jaka Alex</option>
+                                        @foreach (var item in Model.Doctors.ToList())
+                                        {
+                                            <option>@item.FullName</option>
+
+                                        }
+
                                     </select>
                                 </div>
                             </div>
@@ -279,7 +201,7 @@
 <!-- End Appointment Area -->
 <!-- Patient Feedback and Cta Area-->
 @{
-    Html.RenderPartial("~/Views/_PatientCtaArea.cshtml");
+    Html.RenderPartial("~/Views/_PatientCtaArea.cshtml",Model.PatientFeedbacks);
 }
 <!-- End Patient Feedback and Cta Area-->
 <!-- Latest news section -->
@@ -291,130 +213,36 @@
         </div>
 
         <div class="latest-news-carousel owl-carousel owl-theme owl-theme-2">
-            <div class="single-card actical-card">
-                <div class="thumb-img">
-                    <a href="#">
-                        <img src="~/Public/assets/img/news/1.jpg" alt="News Image" />
-                    </a>
+            @foreach (var item in Model.Blogs.ToList())
+            {
+                <div class="col-lg-6 col-md-6">
+                    <div class="single-card actical-card">
+                        <div class="thumb-img">
+                            <a href="#">
+                                <img src="~/Uploads/@item.Photo" alt="News Image" />
+                            </a>
+                        </div>
+
+                        <div class="caption-text">
+                            <h3><a href="@Url.Action("details","blogs",new { slug= item.Slug})">@item.Title</a></h3>
+
+                            <ul class="meta-tag">
+                                <li class="author">
+                                    <img src="~/Uploads/@item.Author.Photo" alt="">
+                                    <a href="@Url.Action("details","blog",new {slug=item.Slug })">@item.Author.Name</a>
+                                </li>
+                                <li>@item.Date.ToShortDateString()</li>
+                                @*<li><i class="icofont-speech-comments"></i> 30</li>*@
+                            </ul>
+
+                            <p>@item.Text</p>
+                            <a href=@Url.Action("details","blog",new {slug=item.Slug }) class="read-more">Read More <i class="icofont-swoosh-right"></i></a>
+                        </div>
+                    </div>
                 </div>
+            }
 
-                <div class="caption-text">
-                    <h3><a href="#">Baby Talk: Is Surrogacy An Option?</a></h3>
-
-                    <ul class="meta-tag">
-                        <li class="author">
-                            <img src="~/Public/assets/img/patient/1.jpg" alt="">
-                            <a href="#">Dr. Jacson</a>
-                        </li>
-                        <li>5 Jan, 2019</li>
-                        <li><i class="icofont-speech-comments"></i> 30</li>
-                    </ul>
-
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore</p>
-
-                    <a href="#" class="read-more">Read More <i class="icofont-swoosh-right"></i></a>
-                </div>
-            </div>
-
-            <div class="single-card actical-card">
-                <div class="thumb-img">
-                    <a href="#">
-                        <img src="~/Public/assets/img/news/2.jpg" alt="News Image" />
-                    </a>
-                </div>
-
-                <div class="caption-text">
-                    <h3><a href="#">4 Simple Tips To Dental Patient Marketing</a></h3>
-
-                    <ul class="meta-tag">
-                        <li class="author">
-                            <img src="~/Public/assets/img/patient/1.jpg" alt="">
-                            <a href="#">Dr. Jack</a>
-                        </li>
-                        <li>7 Jan, 2019</li>
-                        <li><i class="icofont-speech-comments"></i> 30</li>
-                    </ul>
-
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore</p>
-
-                    <a href="#" class="read-more">Read More <i class="icofont-swoosh-right"></i></a>
-                </div>
-            </div>
-
-            <div class="single-card actical-card">
-                <div class="thumb-img">
-                    <a href="#">
-                        <img src="~/Public/assets/img/news/3.jpg" alt="News Image" />
-                    </a>
-                </div>
-
-                <div class="caption-text">
-                    <h3><a href="#">How to Donate Medical Supplies</a></h3>
-
-                    <ul class="meta-tag">
-                        <li class="author">
-                            <img src="~/Public/assets/img/patient/1.jpg" alt="">
-                            <a href="#">Dr. Tom</a>
-                        </li>
-                        <li>8 Jan, 2019</li>
-                        <li><i class="icofont-speech-comments"></i> 30</li>
-                    </ul>
-
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore</p>
-
-                    <a href="#" class="read-more">Read More <i class="icofont-swoosh-right"></i></a>
-                </div>
-            </div>
-
-            <div class="single-card actical-card">
-                <div class="thumb-img">
-                    <a href="#">
-                        <img src="~/Public/assets/img/news/4.jpg" alt="News Image" />
-                    </a>
-                </div>
-
-                <div class="caption-text">
-                    <h3><a href="#">Simple First Aid Tips For An Injured Ankle</a></h3>
-
-                    <ul class="meta-tag">
-                        <li class="author">
-                            <img src="~/Public/assets/img/patient/1.jpg" alt="">
-                            <a href="#">Dr. Jaci</a>
-                        </li>
-                        <li>15 Jan, 2019</li>
-                        <li><i class="icofont-speech-comments"></i> 30</li>
-                    </ul>
-
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore</p>
-
-                    <a href="#" class="read-more">Read More <i class="icofont-swoosh-right"></i></a>
-                </div>
-            </div>
-
-            <div class="single-card actical-card">
-                <div class="thumb-img">
-                    <a href="#">
-                        <img src="~/Public/assets/img/news/5.jpg" alt="News Image" />
-                    </a>
-                </div>
-
-                <div class="caption-text">
-                    <h3><a href="#">Tips for Moms to Detect Medicare Scams</a></h3>
-
-                    <ul class="meta-tag">
-                        <li class="author">
-                            <img src="~/Public/assets/img/patient/1.jpg" alt="">
-                            <a href="#">Dr. Alert</a>
-                        </li>
-                        <li>25 Jan, 2019</li>
-                        <li><i class="icofont-speech-comments"></i> 30</li>
-                    </ul>
-
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore</p>
-
-                    <a href="#" class="read-more">Read More <i class="icofont-swoosh-right"></i></a>
-                </div>
-            </div>
+           
         </div>
     </div>
 </section>
