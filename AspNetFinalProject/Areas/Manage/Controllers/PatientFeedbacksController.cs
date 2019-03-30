@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using AspNetFinalProject.Areas.Manage.Helpers;
 using AspNetFinalProject.Models;
 
 namespace AspNetFinalProject.Areas.Manage.Controllers
@@ -46,10 +47,11 @@ namespace AspNetFinalProject.Areas.Manage.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Photo,Name,Text")] PatientFeedback patientFeedback)
+        public ActionResult Create([Bind(Include = "Id,Photo,Name,Text")] PatientFeedback patientFeedback,HttpPostedFileBase Photo)
         {
             if (ModelState.IsValid)
             {
+                patientFeedback.Photo = FileManager.Upload(Photo);
                 db.PatientFeedbacks.Add(patientFeedback);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -78,11 +80,23 @@ namespace AspNetFinalProject.Areas.Manage.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Photo,Name,Text")] PatientFeedback patientFeedback)
+        public ActionResult Edit([Bind(Include = "Id,Photo,Name,Text")] PatientFeedback patientFeedback,HttpPostedFileBase Photo)
         {
+            db.Entry(patientFeedback).State = EntityState.Modified;
+
+            if (Photo == null)
+            {
+                db.Entry(patientFeedback).Property(a => a.Photo).IsModified = false;
+            }
+            else
+            {
+                FileManager.Delete(patientFeedback.Photo);
+
+                patientFeedback.Photo = FileManager.Upload(Photo);
+            }
+
             if (ModelState.IsValid)
             {
-                db.Entry(patientFeedback).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -110,6 +124,7 @@ namespace AspNetFinalProject.Areas.Manage.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             PatientFeedback patientFeedback = db.PatientFeedbacks.Find(id);
+            FileManager.Delete(patientFeedback.Photo);
             db.PatientFeedbacks.Remove(patientFeedback);
             db.SaveChanges();
             return RedirectToAction("Index");

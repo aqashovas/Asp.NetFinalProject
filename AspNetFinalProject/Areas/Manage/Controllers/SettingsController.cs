@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using AspNetFinalProject.Areas.Manage.Helpers;
 using AspNetFinalProject.Models;
 
 namespace AspNetFinalProject.Areas.Manage.Controllers
@@ -46,10 +47,11 @@ namespace AspNetFinalProject.Areas.Manage.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Logo,Linkedin,Facebook,Instagram,Twitter,GooglePlus,Mail,Phone,Lat,Lng,Location,ContactMail1,ContactPhone1,ContactMail2,ContactPhone2")] Setting setting)
+        public ActionResult Create([Bind(Include = "Id,Logo,Linkedin,Facebook,Instagram,Twitter,GooglePlus,Mail,Phone,Lat,Lng,Location,ContactMail1,ContactPhone1,ContactMail2,ContactPhone2")] Setting setting,HttpPostedFileBase Logo)
         {
             if (ModelState.IsValid)
             {
+                setting.Logo = FileManager.Upload(Logo);
                 db.Settings.Add(setting);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -78,11 +80,23 @@ namespace AspNetFinalProject.Areas.Manage.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Logo,Linkedin,Facebook,Instagram,Twitter,GooglePlus,Mail,Phone,Lat,Lng,Location,ContactMail1,ContactPhone1,ContactMail2,ContactPhone2")] Setting setting)
+        public ActionResult Edit([Bind(Include = "Id,Logo,Linkedin,Facebook,Instagram,Twitter,GooglePlus,Mail,Phone,Lat,Lng,Location,ContactMail1,ContactPhone1,ContactMail2,ContactPhone2")] Setting setting,HttpPostedFileBase Logo)
         {
+            db.Entry(setting).State = EntityState.Modified;
+
+            if (Logo == null)
+            {
+                db.Entry(setting).Property(a => a.Logo).IsModified = false;
+            }
+            else
+            {
+                FileManager.Delete(setting.Logo);
+
+                setting.Logo = FileManager.Upload(Logo);
+            }
+
             if (ModelState.IsValid)
             {
-                db.Entry(setting).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -110,6 +124,7 @@ namespace AspNetFinalProject.Areas.Manage.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Setting setting = db.Settings.Find(id);
+            FileManager.Delete(setting.Logo);
             db.Settings.Remove(setting);
             db.SaveChanges();
             return RedirectToAction("Index");

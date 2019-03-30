@@ -63,7 +63,7 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Logo)
+            <img src="~/Uploads/@item.Logo" width="150" />
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Linkedin)

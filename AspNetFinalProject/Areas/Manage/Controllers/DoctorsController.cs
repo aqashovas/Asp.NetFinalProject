@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using AspNetFinalProject.Areas.Manage.Helpers;
 using AspNetFinalProject.Models;
 
 namespace AspNetFinalProject.Areas.Manage.Controllers
@@ -48,10 +49,13 @@ namespace AspNetFinalProject.Areas.Manage.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Text,Moretext,FullName,Photo,BigPhoto,Address,Phone,Mail,Degree,Slug,Facebook,Instagram,Linkedin,Twitter,SpecialityId")] Doctor doctor)
+        public ActionResult Create([Bind(Include = "Id,Text,Moretext,FullName,Photo,BigPhoto,Address,Phone,Mail,Degree,Slug,Facebook,Instagram,Linkedin,Twitter,SpecialityId")] Doctor doctor,HttpPostedFileBase Photo1, HttpPostedFileBase Photo2)
         {
             if (ModelState.IsValid)
             {
+                doctor.Photo = FileManager.Upload(Photo1);
+                doctor.BigPhoto = FileManager.Upload(Photo2);
+
                 db.Doctors.Add(doctor);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -115,6 +119,8 @@ namespace AspNetFinalProject.Areas.Manage.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Doctor doctor = db.Doctors.Find(id);
+            FileManager.Delete(doctor.Photo);
+            FileManager.Delete(doctor.BigPhoto);
             db.Doctors.Remove(doctor);
             db.SaveChanges();
             return RedirectToAction("Index");

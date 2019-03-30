@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using AspNetFinalProject.Areas.Manage.Helpers;
 using AspNetFinalProject.Models;
 
 namespace AspNetFinalProject.Areas.Manage.Controllers
@@ -46,10 +47,12 @@ namespace AspNetFinalProject.Areas.Manage.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Photo,Text")] Slider slider)
+        public ActionResult Create([Bind(Include = "Id,Photo,Text")] Slider slider,HttpPostedFileBase Photo)
         {
             if (ModelState.IsValid)
             {
+                
+                slider.Photo= FileManager.Upload(Photo);
                 db.Sliders.Add(slider);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -78,11 +81,23 @@ namespace AspNetFinalProject.Areas.Manage.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Photo,Text")] Slider slider)
+        public ActionResult Edit([Bind(Include = "Id,Photo,Text")] Slider slider,HttpPostedFileBase Photo)
         {
+            db.Entry(slider).State = EntityState.Modified;
+
+            if (Photo == null)
+            {
+                db.Entry(slider).Property(a => a.Photo).IsModified = false;
+            }
+            else
+            {
+                FileManager.Delete(slider.Photo);
+
+                slider.Photo = FileManager.Upload(Photo);
+            }
+
             if (ModelState.IsValid)
             {
-                db.Entry(slider).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -110,6 +125,7 @@ namespace AspNetFinalProject.Areas.Manage.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Slider slider = db.Sliders.Find(id);
+            FileManager.Delete(slider.Photo);
             db.Sliders.Remove(slider);
             db.SaveChanges();
             return RedirectToAction("Index");

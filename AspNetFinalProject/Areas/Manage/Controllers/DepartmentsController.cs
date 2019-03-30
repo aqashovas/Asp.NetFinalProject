@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using AspNetFinalProject.Areas.Manage.Helpers;
 using AspNetFinalProject.Models;
 
 namespace AspNetFinalProject.Areas.Manage.Controllers
@@ -46,10 +47,11 @@ namespace AspNetFinalProject.Areas.Manage.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Title,Text,Photo,Slug,Address,Mail,Phone,CategoryName,HeadofDepartmentposition,HeadofDepartmentname,Facebook,Instagram,Twitter")] Department department)
+        public ActionResult Create([Bind(Include = "Id,Title,Text,Photo,Slug,Address,Mail,Phone,CategoryName,HeadofDepartmentposition,HeadofDepartmentname,Facebook,Instagram,Twitter")] Department department,HttpPostedFileBase Photo)
         {
             if (ModelState.IsValid)
             {
+                department.Photo = FileManager.Upload(Photo);
                 db.Departments.Add(department);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -78,11 +80,24 @@ namespace AspNetFinalProject.Areas.Manage.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Title,Text,Photo,Slug,Address,Mail,Phone,CategoryName,HeadofDepartmentposition,HeadofDepartmentname,Facebook,Instagram,Twitter")] Department department)
+        public ActionResult Edit([Bind(Include = "Id,Title,Text,Photo,Slug,Address,Mail,Phone,CategoryName,HeadofDepartmentposition,HeadofDepartmentname,Facebook,Instagram,Twitter")] Department department,HttpPostedFile Photo)
         {
+
+            db.Entry(department).State = EntityState.Modified;
+
+            if (Photo == null)
+            {
+                db.Entry(department).Property(a => a.Photo).IsModified = false;
+            }
+            else
+            {
+                FileManager.Delete(department.Photo);
+
+                department.Photo = FileManager.Upload(Photo);
+            }
+
             if (ModelState.IsValid)
             {
-                db.Entry(department).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -110,6 +125,7 @@ namespace AspNetFinalProject.Areas.Manage.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Department department = db.Departments.Find(id);
+            FileManager.Delete(department.Photo);
             db.Departments.Remove(department);
             db.SaveChanges();
             return RedirectToAction("Index");

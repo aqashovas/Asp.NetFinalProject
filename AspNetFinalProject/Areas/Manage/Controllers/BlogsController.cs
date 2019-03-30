@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using AspNetFinalProject.Areas.Manage.Helpers;
 using AspNetFinalProject.Models;
 
 namespace AspNetFinalProject.Areas.Manage.Controllers
@@ -48,10 +49,12 @@ namespace AspNetFinalProject.Areas.Manage.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Photo,AuthorId,Text,Title,Date,CategoryId,Slug,Postedby,SpecialText,Moretext")] Blog blog)
+        public ActionResult Create([Bind(Include = "Id,Photo,AuthorId,Text,Title,Date,CategoryId,Slug,Postedby,SpecialText,Moretext")] Blog blog,HttpPostedFileBase Photo)
         {
             if (ModelState.IsValid)
             {
+                blog.Photo = FileManager.Upload(Photo);
+
                 db.Blogs.Add(blog);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -82,11 +85,23 @@ namespace AspNetFinalProject.Areas.Manage.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Photo,AuthorId,Text,Title,Date,CategoryId,Slug,Postedby,SpecialText,Moretext")] Blog blog)
+        public ActionResult Edit([Bind(Include = "Id,Photo,AuthorId,Text,Title,Date,CategoryId,Slug,Postedby,SpecialText,Moretext")] Blog blog,HttpPostedFileBase Photo)
         {
+            db.Entry(blog).State = EntityState.Modified;
+
+            if (Photo == null)
+            {
+                db.Entry(blog).Property(a => a.Photo).IsModified = false;
+            }
+            else
+            {
+                FileManager.Delete(blog.Photo);
+
+                blog.Photo = FileManager.Upload(Photo);
+            }
+
             if (ModelState.IsValid)
             {
-                db.Entry(blog).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -115,6 +130,7 @@ namespace AspNetFinalProject.Areas.Manage.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Blog blog = db.Blogs.Find(id);
+            FileManager.Delete(blog.Photo);
             db.Blogs.Remove(blog);
             db.SaveChanges();
             return RedirectToAction("Index");

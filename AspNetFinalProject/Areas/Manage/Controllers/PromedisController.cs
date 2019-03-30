@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using AspNetFinalProject.Areas.Manage.Helpers;
 using AspNetFinalProject.Models;
 
 namespace AspNetFinalProject.Areas.Manage.Controllers
@@ -46,10 +47,11 @@ namespace AspNetFinalProject.Areas.Manage.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Name,Logo,Photo,Text")] Promedi promedi)
+        public ActionResult Create([Bind(Include = "Id,Name,Logo,Photo,Text")] Promedi promedi,HttpPostedFileBase Photo)
         {
             if (ModelState.IsValid)
             {
+                promedi.Photo = FileManager.Upload(Photo);
                 db.Promedis.Add(promedi);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -78,11 +80,23 @@ namespace AspNetFinalProject.Areas.Manage.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Name,Logo,Photo,Text")] Promedi promedi)
+        public ActionResult Edit([Bind(Include = "Id,Name,Logo,Photo,Text")] Promedi promedi,HttpPostedFileBase Photo)
         {
+            db.Entry(promedi).State = EntityState.Modified;
+
+            if (Photo == null)
+            {
+                db.Entry(promedi).Property(a => a.Photo).IsModified = false;
+            }
+            else
+            {
+                FileManager.Delete(promedi.Photo);
+
+                promedi.Photo = FileManager.Upload(Photo);
+            }
+
             if (ModelState.IsValid)
             {
-                db.Entry(promedi).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -110,6 +124,7 @@ namespace AspNetFinalProject.Areas.Manage.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Promedi promedi = db.Promedis.Find(id);
+            FileManager.Delete(promedi.Photo);
             db.Promedis.Remove(promedi);
             db.SaveChanges();
             return RedirectToAction("Index");

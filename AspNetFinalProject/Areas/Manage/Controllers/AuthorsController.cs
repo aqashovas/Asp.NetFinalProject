@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using AspNetFinalProject.Areas.Manage.Helpers;
 using AspNetFinalProject.Models;
 
 namespace AspNetFinalProject.Areas.Manage.Controllers
@@ -46,10 +47,11 @@ namespace AspNetFinalProject.Areas.Manage.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Name,Photo")] Author author)
+        public ActionResult Create([Bind(Include = "Id,Name,Photo")] Author author,HttpPostedFileBase Photo)
         {
             if (ModelState.IsValid)
             {
+                author.Photo = FileManager.Upload(Photo);
                 db.Authors.Add(author);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -78,11 +80,23 @@ namespace AspNetFinalProject.Areas.Manage.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Name,Photo")] Author author)
+        public ActionResult Edit([Bind(Include = "Id,Name,Photo")] Author author,HttpPostedFileBase Photo)
         {
+            db.Entry(author).State = EntityState.Modified;
+
+            if (Photo == null)
+            {
+                db.Entry(author).Property(a => a.Photo).IsModified = false;
+            }
+            else
+            {
+                FileManager.Delete(author.Photo);
+
+                author.Photo = FileManager.Upload(Photo);
+            }
+
             if (ModelState.IsValid)
             {
-                db.Entry(author).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -110,6 +124,7 @@ namespace AspNetFinalProject.Areas.Manage.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Author author = db.Authors.Find(id);
+            FileManager.Delete(author.Photo);
             db.Authors.Remove(author);
             db.SaveChanges();
             return RedirectToAction("Index");

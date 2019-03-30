@@ -201,3 +201,4 @@ C:\Users\Sabina123\Source\Repos\aqashovas\Asp.NetFinalProject\AspNetFinalProject
 C:\Users\Sabina123\Source\Repos\aqashovas\Asp.NetFinalProject\AspNetFinalProject\obj\Debug\AspNetFinalProject.Migrations.videodel.resources
 C:\Users\Sabina123\Source\Repos\aqashovas\Asp.NetFinalProject\AspNetFinalProject\obj\Debug\AspNetFinalProject.Migrations.Admintable.resources
 C:\Users\Sabina123\Source\Repos\aqashovas\Asp.NetFinalProject\AspNetFinalProject\obj\Debug\AspNetFinalProject.Migrations.altertables.resources
+C:\Users\Sabina123\Source\Repos\aqashovas\Asp.NetFinalProject\AspNetFinalProject\obj\Debug\AspNetFinalProject.Migrations.AdminEmail.resources
